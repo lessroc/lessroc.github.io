@@ -1,0 +1,93 @@
+/* 来必力样式代码 */
+.comment-area-customize {
+  line-height: 1.8em;
+  padding-right: 7.6923%;
+  padding-left: 7.6923%;
+  margin: 0 30px;
+  background-color: #FFFFFF;
+  overflow: hidden;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 18px;
+}
+/* 来必力背景过渡 */
+.comment-area-customize {
+  background: hsla(0, 0%, 100%, .3)
+}
+/* 移动端来必力样式 */
+@media screen and (max-width: 800px) {
+  .comment-area-customize {
+    line-height: 1.8em;
+    padding-right: 7.6923%;
+    padding-left: 7.6923%;
+    margin: auto;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 18px;
+  }
+  .comment-area-customize {
+    background: hsla(0, 0%, 100%, .3)
+  }
+}
+
+/* 标签样式代码 */
+.article-info-index.article-info-customize {
+  margin: 10px 0;
+  min-height: 20px;
+  /*padding-top: 20px;*/
+  /*border-top: 1px solid #ddd*/
+}
+
+/* 取消文章标题前的小黑条 */
+.article-header {
+  border-left: 0 solid #4d4d4d;
+  padding: 30px 0 15px 25px;
+  padding-left: 7.6923%;
+}
+/* 移动端标题样式 */
+@media screen and (max-width: 800px) {
+  .article-header {
+    border-left: none;
+    padding: 0;
+    border-bottom: 1px dotted #ddd
+  }
+}
+
+/* 文章标题美化 */
+a.article-title:hover {
+  color: #39C7F7;
+}
+
+/* 日期时间美化 */
+.archive-article-date {
+  color: #999;
+  margin-right: 7.6923%;
+  float: right;
+}
+.archive-article-date:hover {
+  color: #39C7F7;
+}
+
+/* 展开全文按钮美化 */
+.article-more-link {
+  margin-top: 0;
+  text-align: left;
+  float: left;
+}
+.article-more-link a {
+  background: rgba(77, 77, 77, 0.2);
+  color: #999999;
+  font-size: 12px;
+  padding: 5px 8px;
+  line-height: 16px;
+  border-radius: 18px;
+  transition: background .3s
+}
+.article-more-link a:hover {
+  color: #FFFFFF;
+  background: #39C7F7
+}
+
+
