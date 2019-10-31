@@ -4,15 +4,15 @@
   padding-right: 7.6923%;
   padding-left: 7.6923%;
   margin: 0 30px;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   overflow: hidden;
   -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   border-radius: 18px;
 }
 /* 来必力背景过渡 */
-.comment-area-customize {
-  background: hsla(0, 0%, 100%, .3)
+ .comment-area-customize {
+  background: hsla(0, 0%, 100%, .3);
 }
 /* 移动端来必力样式 */
 @media screen and (max-width: 800px) {
@@ -27,12 +27,12 @@
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     border-radius: 18px;
   }
-  .comment-area-customize {
+  .mid-col.show .comment-area-customize {
     background: hsla(0, 0%, 100%, .3)
   }
 }
 
-/* 标签样式代码 */
+/* 文章类型标签优化 */
 .article-info-index.article-info-customize {
   margin: 10px 0;
   min-height: 20px;
@@ -55,12 +55,12 @@
   }
 }
 
-/* 文章标题美化 */
+/* 文章标题优化 */
 a.article-title:hover {
   color: #39C7F7;
 }
 
-/* 日期时间美化 */
+/* 文章日期优化 */
 .archive-article-date {
   color: #999;
   margin-right: 7.6923%;
@@ -70,7 +70,7 @@ a.article-title:hover {
   color: #39C7F7;
 }
 
-/* 展开全文按钮美化 */
+/* 展开全文按钮优化 */
 .article-more-link {
   margin-top: 0;
   text-align: left;
@@ -90,4 +90,17 @@ a.article-title:hover {
   background: #39C7F7
 }
 
-
+/* 文章框圆角化 */
+.article {
+  margin: 30px;
+  position: relative;
+  border: 0px solid #ddd;
+  border-top: 0px solid #fff;
+  border-bottom: 0px solid #fff;
+  background: #fff;
+  transition: all .2s ease-in;
+  overflow: hidden;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 18px;
+}
