@@ -42,52 +42,31 @@
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
-      <!--
+      <!-- 注释了头像上方的颜色方块
 
 <div class="overlay" style="background: #39CFFF"></div>
 -->
-
 <div class="intrude-less">
 	<header id="header" class="inner">
-		<table border="0">
-			<tr>
-				<td>
-					<a href="/" class="profilepic">
-						<img src="/img/avatar.jpg" class="js-avatar">
-					</a>
-				</td>
-				<td height="128" width="228px">
-					<div style="margin-bottom: 4%">
-						<small style="font-size: 13px; color:#808080ad;">你的鼓励</small>
-					</div>
-					<div style="margin-bottom: 4%">
-						<small style="font-size: 13px; color:#808080ad;">我的动力</small>
-					</div>
-				</td>
-			</tr>
-		</table>
-
-		<!-- 博客名称 -->
+		<a href="/" class="profilepic">
+			<img src="/img/avatar.jpg" class="js-avatar">
+		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">lessroc</a></h1>
 		</hgroup>
-		<!-- 座右铭
 		
 		<p class="header-subtitle">你的鼓励·我的动力</p>
 		
-		-->
-		<!-- 主页/随笔 -->
+
 		<nav class="header-menu">
 			<ul>
 			
-				<!-- <li> --> <a href="/">主页</a> <!-- </li> -->
+				<li><a href="/">主页</a></li>
 	        
-				<!-- <li> --> <a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a> <!-- </li> -->
+				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
 	        
 			</ul>
 		</nav>
-
-		<!-- 所有文章/友链/关于我 -->
 		<nav class="header-smart-menu">
     		
     			
@@ -103,8 +82,6 @@
     			
             
 		</nav>
-
-		<!-- GitHub / weibo / rss / zhihu -->
 		<nav class="header-nav">
 			<div class="social">
 				
@@ -116,14 +93,6 @@
 		        
 					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/huang-he-he-25-12/activities" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
-			</div>
-			<div>
-			<!-- 网易云音乐插件 -->
-			
-				<div style="position:absolute; bottom:120px left:auto; width:85%">
-					<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="52" src="//music.163.com/outchain/player?type=2&id=38592976&auto=0&height=32"></iframe>
-				</div>
-			
 			</div>
 		</nav>
 	</header>
@@ -195,6 +164,7 @@
     <div class="article-inner">
         
             <header class="article-header">
+                <!-- 文章标题与文章日期 -->
                 
   
     <h1 class="article-title" itemprop="name">
@@ -207,6 +177,7 @@
   	<time datetime="2019-10-25T06:50:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-25</time>
 </a>
                 
+                <!-- 把下方的文章标签代码连同样是一并上移到文章标题的下方 -->
                 <div class="article-info-customize article-info-index">
                     
                     
@@ -243,9 +214,9 @@
                     <a href="javascript:;" class="page-reward-btn tooltip-top">
                         <div class="tooltip tooltip-east">
             <span class="tooltip-item">
-              赏
+              赞赏
             </span>
-                            <span class="tooltip-content">
+            <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
                   <p class="reward-p"><i class="icon icon-quo-left"></i>你的鼓励·我的动力<i class="icon icon-quo-right"></i></p>
