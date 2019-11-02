@@ -5,7 +5,7 @@
   padding-left: 7.6923%;
   margin: 0 30px;
   background-color: #FFF;
-  overflow: hidden;
+  /*overflow: hidden;*/
   -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   border-radius: 18px;
@@ -17,8 +17,8 @@
 /* 移动端来必力样式 */
 @media screen and (max-width: 800px) {
   .comment-area-customize {
-    margin: auto;
-    background-color: #FFF;
+    padding: 10px;
+    margin: 10px 0;
   }
   .mid-col.show .comment-area-customize {
     background: hsla(0, 0%, 100%, .3)
@@ -29,6 +29,23 @@
 .article-info-index.article-info-customize {
   margin: 10px 0;
   min-height: 20px;
+}
+/* 文章类型标签移动端优化 */
+@media screen and (max-width: 800px) {
+  .article-info-index.article-info-customize {
+    margin: 10px 0 20px;
+    min-height: 20px;
+  }
+}
+/* 标签tag开关微调 */
+.tools-col .tools-section .search-tag.tagcloud .search-switch input:after {
+  top: 14.5px;
+  left: 0;
+  background-color: #64BD63;
+}
+/* 标签云背景优化 */
+.tools-col .tools-section .search-tag.tagcloud .article-tag-list {
+  border-radius: 18px;
 }
 
 /* 干掉文章标题前的小黑块 */
@@ -63,7 +80,15 @@ a.article-title:hover {
   color: #999999;
   border-radius: 18px;
 }
+.mid-col.show .article .article-more-link a {
+  background: rgba(77, 77, 77, 0.1);
+  color: #999999;
+}
 .article-more-link a:hover {
+  color: #FFFFFF;
+  background: #39C7F7
+}
+.mid-col.show .article .article-more-link a:hover {
   color: #FFFFFF;
   background: #39C7F7
 }
@@ -71,24 +96,64 @@ a.article-title:hover {
 /* 文章框圆角化 */
 .article {
   border: 0;
-  overflow: hidden;
+  /*overflow: hidden;*/
   -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   border-radius: 18px;
 }
 
-/* 左列文件优化 */
+/* 左列个人主页优化 */
 .left-col {
-  background: #fff;
-  width: 300px;
-  position: fixed;
-  opacity: 1;
-  transition: all .2s ease-in;
+  margin: 30px 0 170px 0;
   height: -webkit-fill-available;
-  z-index: 999;
-  margin: 30px 0 30px 0;
-  overflow: hidden;
+  /*overflow: hidden;*/
   -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   border-radius: 0 18px 18px 0;
 }
+/*左列背景过渡到透明*/
+.left-col.show {
+  background: hsla(0, 0%, 0%, .0);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, .0);
+  margin: 30px auto;
+  border-radius: 0;
+}
+/* 头像优化 */
+.left-col .intrude-less {
+  margin: 12% auto 0;
+}
+.left-col #header .profilepic {
+  border: 0 solid #fff;
+}
+/* 主页随笔自动居中 */
+.left-col #header .header-menu {
+margin: auto;
+}
+/* 跳转到站外按钮高亮 */
+#header .header-nav .social a.github:hover {
+  background: #000000;
+  border: 1px solid #000000;
+}
+#header .header-nav .social a.weibo:hover {
+  background: #E6162D;
+  border: 1px solid #E6162D;
+}
+#header .header-nav .social a.rss:hover {
+  background: #FF6600;
+  border: 1px solid #FF6600;
+}
+#header .header-nav .social a.zhihu:hover {
+  background: #0E88EB;
+  border: 1px solid #0E88EB;
+}
+
+
+
+
+
+
+
+
+
+
+
