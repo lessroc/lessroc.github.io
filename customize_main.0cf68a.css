@@ -43,6 +43,9 @@
   left: 0;
   background-color: #64BD63;
 }
+.tools-col .tools-section .search-tag.tagcloud .search-switch input:checked:after {
+  left: 28px;
+}
 /* 标签云背景优化 */
 .tools-col .tools-section .search-tag.tagcloud .article-tag-list {
   border-radius: 18px;
@@ -129,6 +132,16 @@ a.article-title:hover {
 .left-col #header .header-menu {
 margin: auto;
 }
+/* 主页随笔移动端按钮高亮并增大头像背景高度 */
+@media screen and (max-width: 800px) {
+  .header-menu li a:hover {
+    color: #FFFFFF;
+    background: #39C7F7
+  }
+  #mobile-nav .overlay {
+    height: 150px;
+  }
+}
 /* 跳转到站外按钮高亮 */
 #header .header-nav .social a.github:hover {
   background: #000000;
@@ -147,13 +160,37 @@ margin: auto;
   border: 1px solid #0E88EB;
 }
 
-
-
-
-
-
-
-
+/* 移动端三点式菜单页面优化 */
+@media screen and (max-width: 800px) {
+  /* 顶部三个按钮顶部余量 */
+  .header-menu.tools-nav {
+    margin-top: 20px;
+  }
+  /* 菜单页面宽度 */
+  .tools-col .tools-section, .tools-col .tools-wrap {
+    width: 333px;
+  }
+  /* 搜索按钮偏移 */
+  .tools-col .tools-section .search-wrap, .tools-col .tools-wrap .search-wrap {
+    width: 292px;
+  }
+  /* 搜索边框偏移 */
+  .tools-col .tools-section .search-wrap .search-ipt {
+    width: 293px;
+  }
+  /* 标签余量归零 */
+  .tools-col .tools-section .search-tag.tagcloud, .tools-col .tools-wrap .search-tag.tagcloud {
+     margin-right: 0;
+  }
+  /* 标签提示符tag:偏移 */
+  .tools-col .tools-section .search-tag.tagcloud .search-tag-wording {
+    margin: 4px 69px 0 0;
+  }
+  /* 标签按钮偏移 */
+  .tools-col .tools-section .search-tag.tagcloud .search-switch input {
+    width: 34px;
+  }
+}
 
 
 
