@@ -8,21 +8,21 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>用hexo撬开博客的大门 | lessroc的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本教程基于Windows：  建议：安装node前先安装好git，利用Git Bash Here可以完美替换cmd 理由：它是一个非常好的命令行哈，完美兼容Linux与win命令 安装环境 到官网下载并安装node.js LTS版本 https:&#x2F;&#x2F;nodejs.org&#x2F;en&#x2F;      安装完成后打开cmd命令提示符输入以下命令查看node.js和npm的版本 12node -vnpm -v">
-<meta name="keywords" content="博客">
+  <meta name="description" content="本教程基于Windows：">
+<meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用hexo撬开博客的大门">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;06&#x2F;%E7%94%A8hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8&#x2F;index.html">
 <meta property="og:site_name" content="lessroc的博客">
-<meta property="og:description" content="本教程基于Windows：  建议：安装node前先安装好git，利用Git Bash Here可以完美替换cmd 理由：它是一个非常好的命令行哈，完美兼容Linux与win命令 安装环境 到官网下载并安装node.js LTS版本 https:&#x2F;&#x2F;nodejs.org&#x2F;en&#x2F;      安装完成后打开cmd命令提示符输入以下命令查看node.js和npm的版本 12node -vnpm -v">
+<meta property="og:description" content="本教程基于Windows：">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="e:%5CProjects%5Cblog%5Cthemes%5Cyilia%5Csource%5C%E7%94%A8hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8.assets%5CWindows%E8%A7%84%E6%A0%BC.png">
-<meta property="og:image" content="e:%5CProjects%5Cblog%5Cthemes%5Cyilia%5Csource%5C%E7%94%A8hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8.assets%5Cnodejs%E7%89%88%E6%9C%AC.png">
-<meta property="og:image" content="e:%5CProjects%5Cblog%5Cthemes%5Cyilia%5Csource%5C%E7%94%A8hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8.assets%5C%E6%9F%A5%E7%9C%8Bnode%E4%B8%8Enpm%E7%9A%84%E7%89%88%E6%9C%AC.png">
-<meta property="og:image" content="e:%5CProjects%5Cblog%5Cthemes%5Cyilia%5Csource%5C%E7%94%A8hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8.assets%5C%E6%9F%A5%E7%9C%8Bhexo%E7%9A%84%E7%89%88%E6%9C%AC.png">
-<meta property="og:updated_time" content="2019-11-09T14:57:58.468Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;06&#x2F;%E7%94%A8hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8&#x2F;%E7%94%A8hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8.assets&#x2F;Windows%E8%A7%84%E6%A0%BC.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;06&#x2F;%E7%94%A8hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8&#x2F;%E7%94%A8hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8.assets&#x2F;nodejs%E7%89%88%E6%9C%AC.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;06&#x2F;%E7%94%A8hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8&#x2F;%E7%94%A8hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8.assets&#x2F;%E6%9F%A5%E7%9C%8Bnode%E4%B8%8Enpm%E7%9A%84%E7%89%88%E6%9C%AC.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;06&#x2F;%E7%94%A8hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8&#x2F;%E7%94%A8hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8.assets&#x2F;%E6%9F%A5%E7%9C%8Bhexo%E7%9A%84%E7%89%88%E6%9C%AC.png">
+<meta property="og:updated_time" content="2019-11-09T15:25:14.557Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="e:%5CProjects%5Cblog%5Cthemes%5Cyilia%5Csource%5C%E7%94%A8hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8.assets%5CWindows%E8%A7%84%E6%A0%BC.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;06&#x2F;%E7%94%A8hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8&#x2F;%E7%94%A8hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8.assets&#x2F;Windows%E8%A7%84%E6%A0%BC.png">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -199,7 +199,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		
 		</ul>
@@ -213,16 +213,17 @@
         <div class="article-entry" itemprop="articleBody">
             
                 <p>本教程基于Windows：</p>
-<p><img src="E:%5CProjects%5Cblog%5Cthemes%5Cyilia%5Csource%5C%E7%94%A8hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8.assets%5CWindows%E8%A7%84%E6%A0%BC.png" alt="Windows规格.png"></p>
-<p><strong>建议：安装node前先安装好git，利用Git Bash Here可以完美替换cmd</strong></p>
+<p><img src="%E7%94%A8hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8.assets/Windows%E8%A7%84%E6%A0%BC.png" alt="Windows规格.png"></p>
+<a id="more"></a>
+
+<p>建议：安装node前先安装好git，利用Git Bash Here可以完美替换cmd**</p>
 <p>理由：它是一个非常好的命令行哈，完美兼容Linux与win命令</p>
-<h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><p> 到官网下载并安装node.js LTS版本</p>
-<p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a> </p>
-<p>   <img src="E:%5CProjects%5Cblog%5Cthemes%5Cyilia%5Csource%5C%E7%94%A8hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8.assets%5Cnodejs%E7%89%88%E6%9C%AC.png" alt="nodejs版本.png"></p>
+<h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><p> 到<a href="https://nodejs.org/en/" target="_blank" rel="noopener">官网</a>下载并安装node.js LTS版本</p>
+<p><img src="%E7%94%A8hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8.assets/nodejs%E7%89%88%E6%9C%AC.png" alt="nodejs版本.png"></p>
 <p>安装完成后打开cmd命令提示符输入以下命令查看node.js和npm的版本</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
 
-<p><img src="E:%5CProjects%5Cblog%5Cthemes%5Cyilia%5Csource%5C%E7%94%A8hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8.assets%5C%E6%9F%A5%E7%9C%8Bnode%E4%B8%8Enpm%E7%9A%84%E7%89%88%E6%9C%AC.png" alt="查看node与npm的版本.png"></p>
+<p><img src="%E7%94%A8hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8.assets/%E6%9F%A5%E7%9C%8Bnode%E4%B8%8Enpm%E7%9A%84%E7%89%88%E6%9C%AC.png" alt="查看node与npm的版本.png"></p>
 <h2 id="安装包管理器"><a href="#安装包管理器" class="headerlink" title="安装包管理器"></a>安装包管理器</h2><p>由于国内镜像源安装很慢，所以先利用npm(包管理器)安装cnpm，命令如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
 
@@ -233,7 +234,7 @@
 <p>安装完成后查看版本</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
 
-<p><img src="E:%5CProjects%5Cblog%5Cthemes%5Cyilia%5Csource%5C%E7%94%A8hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8.assets%5C%E6%9F%A5%E7%9C%8Bhexo%E7%9A%84%E7%89%88%E6%9C%AC.png" alt="查看hexo的版本.png"></p>
+<p><img src="%E7%94%A8hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8.assets/%E6%9F%A5%E7%9C%8Bhexo%E7%9A%84%E7%89%88%E6%9C%AC.png" alt="查看hexo的版本.png"></p>
 <h2 id="创建专属博客的文件夹"><a href="#创建专属博客的文件夹" class="headerlink" title="创建专属博客的文件夹"></a>创建专属博客的文件夹</h2><p>也就是博客的根目录，整个博客都基于这个文件夹</p>
 <p>cd到硬盘理想的位置，文件夹命名随意 (建议规范命名)</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir blog</span><br></pre></td></tr></table></figure>
@@ -548,7 +549,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
