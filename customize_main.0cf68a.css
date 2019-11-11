@@ -127,7 +127,30 @@ a.article-title:hover {
 }
 .left-col #header .profilepic {
   border: 0 solid #fff;
+  -webkit-box-shadow: 0 0 0 2px rgba(255,255,255,0.5), 0px 2px 20px 3px rgba(0,0,0,0.25);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.5), 0px 2px 20px 3px rgba(0,0,0,0.25);
 }
+/* 头像跃动 */
+.left-col #header .profilepic:hover {
+  -webkit-animation: jello 1s;
+  animation: jello 1s;
+}
+/*头像旋转360°，鼠标离开后又转回来，代码如下:*/
+/*
+.left-col #header .profilepic img {
+  !* 控制旋转速度时间*!
+  -webkit-transition: -webkit-transform 1.0s ease-out;
+  -moz-transition: -moz-transform 1.0s ease-out;
+  transition: transform 1.0s ease-out;
+}
+.left-col #header .profilepic img:hover {
+  !* 鼠标经过360% *!
+  -webkit-transform: rotateZ(360deg);
+  -moz-transform: rotateZ(360deg);
+  transform: rotateZ(360deg);
+}
+*/
+
 /* 主页随笔自动居中 */
 .left-col #header .header-menu {
 margin: auto;
@@ -228,3 +251,5 @@ margin: auto;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   }
 }
+
+
