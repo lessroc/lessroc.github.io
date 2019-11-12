@@ -135,6 +135,22 @@ a.article-title:hover {
   -webkit-animation: jello 1s;
   animation: jello 1s;
 }
+/* 移动端头像优化 */
+@media screen and (max-width: 800px) {
+  .profilepic {
+    width: 100px;
+    height: 100px;
+    margin: 15px auto 30px;
+    border: 0 solid #fff;
+    -webkit-box-shadow: 0 0 0 2px rgba(255,255,255,0.5), 0px 2px 20px 3px rgba(0,0,0,0.25);
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.5), 0px 2px 20px 3px rgba(0,0,0,0.25);
+  }
+  /* 头像跃动 */
+  .profilepic:hover {
+    -webkit-animation: jello 1s;
+    animation: jello 1s;
+  }
+}
 /*头像旋转360°，鼠标离开后又转回来，代码如下:*/
 /*
 .left-col #header .profilepic img {
@@ -253,7 +269,7 @@ margin: auto;
   -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
-/* 移动端过渡 */
+/* 公众号移动端过渡 */
 @media screen and (max-width: 800px) {
   .hide_image {
     display: block;
@@ -275,10 +291,11 @@ margin: auto;
 
 /* 文章目录样式 */
 #container .show-toc-btn, #container .toc-article {
-  display: block
+  display: none;
 }
 
 .toc-article {
+  display: none;
   z-index: 100;
   background: #fff;
   border: 1px solid #ccc;
@@ -291,7 +308,7 @@ margin: auto;
   position: fixed;
   right: 35px;
   /*top: 129px;*/
-  margin: 4px;
+  margin: 0 4px 0;
   -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1), 0 0 0px 0 rgba(0, 0, 0, 0.12);
   border-radius: 18px 0 0 18px;
@@ -303,6 +320,12 @@ margin: auto;
   cursor: pointer;
   float: right;
   color: #ccc
+}
+.toc-article .toc-close {
+  top: 130px;
+  width: 25px;
+  height: 150px;
+  margin: -10px -10px auto;
 }
 
 .toc-article .toc-close:hover {
@@ -440,16 +463,17 @@ margin: auto;
 }
 
 .show-toc-btn {
-  display: none;
+  display: block;
   z-index: 10;
   width: 30px;
+  height: 153px;
   min-height: 14px;
   overflow: hidden;
   padding: 4px 6px 8px 5px;
   border: 1px solid #ddd;
   border-right: none;
   position: fixed;
-  right: 40px;
+  right: 39px;
   text-align: center;
   background-color: #f9f9f9;
   border-radius: 18px 0 0 18px;
@@ -482,7 +506,12 @@ margin: auto;
 .show-toc-btn:hover .btn-text {
   font-size: 12px;
   /*color: #ea8010;*/
-  color: #0088CC;
+  /*color: #0088CC;*/
+  color: #FFFFFF;
+  background: #39C7F7
+}
+.show-toc-btn:hover {
+  background: #39C7F7
 }
 
 .toc-article li ol, .toc-article li ul {
@@ -496,19 +525,29 @@ margin: auto;
 /* 移动端导航 */
 @media screen and (max-width: 800px) {
   .show-toc-btn {
-    top: 332px;
-    right: 0px;
+    top: 150px;
+    right: 0;
     width: 10px;
-    height: 150px;
-    border-radius: 18px;
-    padding: 0px;
+    padding: 0;
   }
   .show-toc-btn .btn-text {
     font-size: 9px;
   }
+  .show-toc-btn:hover .btn-text {
+    font-size: 9px;
+  }
   .toc-article {
     top: 150px;
-    right: 10px;
-    border-radius: 18px;
+    right: -5px;
+    border-radius: 18px 0 0 18px;
+  }
+  .toc-article .toc-close {
+    top: 130px;
+    width: 25px;
+    height: 150px;
+    margin: -10px -10px auto;
+  }
+  .toc-article .toc-close:hover {
+    color: #000;
   }
 }
