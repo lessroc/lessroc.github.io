@@ -20,7 +20,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;10&#x2F;%E7%94%A8Hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8&#x2F;nodejs%E7%89%88%E6%9C%AC.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;10&#x2F;%E7%94%A8Hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8&#x2F;%E6%9F%A5%E7%9C%8Bnode%E4%B8%8Enpm%E7%9A%84%E7%89%88%E6%9C%AC.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;10&#x2F;%E7%94%A8Hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8&#x2F;%E6%9F%A5%E7%9C%8Bhexo%E7%9A%84%E7%89%88%E6%9C%AC.png">
-<meta property="og:updated_time" content="2019-11-12T05:25:21.514Z">
+<meta property="og:updated_time" content="2019-11-14T15:31:23.068Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;10&#x2F;%E7%94%A8Hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8&#x2F;Windows%E8%A7%84%E6%A0%BC.png">
   
@@ -33,6 +33,8 @@
     <link href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" rel="stylesheet">  <!--头像跃动网络样式-->
     <link rel="stylesheet" type="text/css" href="/./customize_main.0cf68a.css">
   
+  <!-- 文章目录 -->
+
   <style type="text/css">
   
     #container.show {
@@ -214,6 +216,7 @@
                 </div>
             </header>
         
+
         <!-- 目录内容 -->
         
             <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:block">
@@ -290,7 +293,7 @@
 <p>建议使用Typora软件来编辑md文件</p>
 <p>编辑完成后保存退出并回到博客的根目录</p>
 <p>清理博客，然后生成新的博客</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
 
 <p>再次启动博客就可以看到刚刚编辑的文章了</p>
 <p>本地博客这样就完成啦！也没有多少条命令哈哈</p>
@@ -318,15 +321,15 @@
 
 <p><strong>更改根目录配置文件的主题参数</strong></p>
 <p><strong>打开配置文件，找到主题参数，把默认值更改为 <code>yilia</code></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim _config.yml</span><br><span class="line">theme: yilia</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim _config.yml</span><br><span class="line">theme: yilia</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="日常三步骤"><a href="#日常三步骤" class="headerlink" title="日常三步骤"></a>日常三步骤</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean	(清理)</span><br><span class="line">hexo g		(生成)</span><br><span class="line">hexo s		(启动本地博客)</span><br></pre></td></tr></table></figure>
+<h2 id="日常三步骤"><a href="#日常三步骤" class="headerlink" title="日常三步骤"></a>日常三步骤</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean	(清理)</span><br><span class="line">hexo g			(生成)</span><br><span class="line">hexo s			(启动本地博客)</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="部署到远端也可以生成后直接部署"><a href="#部署到远端也可以生成后直接部署" class="headerlink" title="部署到远端也可以生成后直接部署"></a>部署到远端也可以生成后直接部署</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
+<h2 id="部署到远端也可以生成后直接部署"><a href="#部署到远端也可以生成后直接部署" class="headerlink" title="部署到远端也可以生成后直接部署"></a>部署到远端也可以生成后直接部署</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
 
 
             
@@ -586,11 +589,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
             
             <div class="clearfix"></div>
