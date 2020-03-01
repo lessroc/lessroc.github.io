@@ -20,7 +20,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;10&#x2F;%E7%94%A8Hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8&#x2F;nodejs%E7%89%88%E6%9C%AC.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;10&#x2F;%E7%94%A8Hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8&#x2F;%E6%9F%A5%E7%9C%8Bnode%E4%B8%8Enpm%E7%9A%84%E7%89%88%E6%9C%AC.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;10&#x2F;%E7%94%A8Hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8&#x2F;%E6%9F%A5%E7%9C%8Bhexo%E7%9A%84%E7%89%88%E6%9C%AC.png">
-<meta property="og:updated_time" content="2019-11-19T06:45:08.883Z">
+<meta property="og:updated_time" content="2020-03-01T12:53:27.110Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;10&#x2F;%E7%94%A8Hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8&#x2F;Windows%E8%A7%84%E6%A0%BC.png">
   
@@ -199,7 +199,7 @@
   	<time datetime="2019-11-09T16:04:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-10</time>
 </a>
                 
-                <!-- 把下方的文章标签代码连同样是一并上移到文章标题的下方 -->
+                <!-- 把下方的文章标签代码连同样式一并上移到文章标题的下方 -->
                 <div class="article-info-customize article-info-index">
                     
                     
@@ -222,12 +222,12 @@
 
         <!-- 目录内容 -->
         
-            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:block">
+            <p class="show-toc-btn" id="show-toc-btn" onmouseover="showToc();" style="display:block">
                 <span class="btn-bg"></span>
                 <span class="btn-text">文章导航</span>
             </p>
-            <div id="toc-article" class="toc-article">
-                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+            <div id="toc-article" class="toc-article" onmouseleave="showBtn();">
+                <span id="toc-close" class="toc-close" title="隐藏导航">×</span>
                 <strong class="toc-title">文章目录</strong>
                 <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装环境"><span class="toc-number">1.</span> <span class="toc-text">安装环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装包管理器"><span class="toc-number">2.</span> <span class="toc-text">安装包管理器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装hexo博客框架"><span class="toc-number">3.</span> <span class="toc-text">安装hexo博客框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建专属博客的文件夹"><span class="toc-number">4.</span> <span class="toc-text">创建专属博客的文件夹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动博客"><span class="toc-number">5.</span> <span class="toc-text">启动博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署到远端"><span class="toc-number">6.</span> <span class="toc-text">部署到远端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装git插件"><span class="toc-number">7.</span> <span class="toc-text">安装git插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#把博客推送到远端"><span class="toc-number">8.</span> <span class="toc-text">把博客推送到远端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更换主题"><span class="toc-number">9.</span> <span class="toc-text">更换主题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#日常三步骤"><span class="toc-number">10.</span> <span class="toc-text">日常三步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署到远端也可以生成后直接部署"><span class="toc-number">11.</span> <span class="toc-text">部署到远端也可以生成后直接部署</span></a></li></ol>
             </div>
@@ -323,8 +323,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure>
 
 <p><strong>更改根目录配置文件的主题参数</strong></p>
-<p><strong>打开配置文件，找到主题参数，把默认值更改为 <code>yilia</code></strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim _config.yml</span><br><span class="line">theme: yilia</span><br></pre></td></tr></table></figure>
+<p>修改hexo根目录下的 <code>_config.yml</code> ： <code>theme: yilia</code> </p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">yilia</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -366,6 +366,7 @@
             
         </div>
         <div class="article-info article-info-index">
+        <!-- 位于此处的文章标签已移动到上方 -->
             
 
             
@@ -437,7 +438,6 @@
 </nav>
 
 
-
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
@@ -450,6 +450,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装环境"><span class="toc-number">1.</span> <span class="toc-text">安装环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装包管理器"><span class="toc-number">2.</span> <span class="toc-text">安装包管理器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装hexo博客框架"><span class="toc-number">3.</span> <span class="toc-text">安装hexo博客框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建专属博客的文件夹"><span class="toc-number">4.</span> <span class="toc-text">创建专属博客的文件夹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动博客"><span class="toc-number">5.</span> <span class="toc-text">启动博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署到远端"><span class="toc-number">6.</span> <span class="toc-text">部署到远端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装git插件"><span class="toc-number">7.</span> <span class="toc-text">安装git插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#把博客推送到远端"><span class="toc-number">8.</span> <span class="toc-text">把博客推送到远端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更换主题"><span class="toc-number">9.</span> <span class="toc-text">更换主题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#日常三步骤"><span class="toc-number">10.</span> <span class="toc-text">日常三步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署到远端也可以生成后直接部署"><span class="toc-number">11.</span> <span class="toc-text">部署到远端也可以生成后直接部署</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -498,7 +511,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 lessroc
+    		&copy; 2020 lessroc
     	</div>
 		 <span id="busuanzi_container_site_pv">
 			本站总访问量<span id="busuanzi_value_site_pv" style="color: blue; font-weight: bold"></span>次
@@ -526,7 +539,7 @@
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
-		toc_hide_index: true,
+		toc_hide_index: false,
 		root: "/",
 		innerArchive: true,
 		showTags: false
@@ -679,7 +692,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">一位狂热的初学者</div>
   	  	
     	</section>
     

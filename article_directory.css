@@ -182,7 +182,7 @@
   border: 1px solid #ddd;
   border-right: none;
   position: fixed;
-  right: 39px;
+  right: 40px;
   text-align: center;
   background-color: #f9f9f9;
   border-radius: 18px 0 0 18px;
@@ -204,10 +204,6 @@
   font-size: 12px
 }
 
-.show-toc-btn:hover {
-  cursor: pointer
-}
-
 .show-toc-btn:hover .btn-bg {
   background-position: 0 -16px
 }
@@ -220,6 +216,7 @@
   background: #39C7F7
 }
 .show-toc-btn:hover {
+  cursor: pointer;
   background: #39C7F7
 }
 

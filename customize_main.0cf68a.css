@@ -130,9 +130,9 @@ a.article-title:hover {
 
 /* 左列个人主页优化 */
 .left-col {
-  margin: 30px 0 170px 0;
-  height: -webkit-fill-available;
-  /*overflow: hidden;*/
+  margin: 30px 0;
+  height: 91.5%;
+  /* overflow: hidden; */
   -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   border-radius: 0 18px 18px 0;
