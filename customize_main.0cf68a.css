@@ -24,7 +24,10 @@
     background: hsla(0, 0%, 100%, .3)
   }
 }
-
+.scroller {
+  overflow-y: scroll;
+  scrollbar-color: #0A4C95 #C2D2E4;
+}
 /* 文章类型标签优化 */
 .article-info-index.article-info-customize {
   margin: 10px 0;
@@ -347,3 +350,8 @@ margin: auto;
   background: rgba(39, 40, 34, 1);
 }
 
+/* Firefox滚动条优化 */
+*, id, class {
+  scrollbar-width: thin;
+  scrollbar-color: #999 #eee;
+}

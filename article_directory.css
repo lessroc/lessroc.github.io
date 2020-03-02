@@ -5,6 +5,7 @@
 
 .toc-article {
   display: none;
+  top: 13.6%;
   z-index: 100;
   background: #fff;
   border: 1px solid #ccc;
@@ -15,12 +16,16 @@
   font-size: 12px;
   padding: 10px;
   position: fixed;
-  right: 35px;
-  /*top: 129px;*/
+  right: 60px;
+  /* top: 129px; */
   margin: 0 4px 0;
   -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(0, 0, 0, 0.12);
-  border-radius: 18px 0 0 18px;
+  -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  -ms-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  -o-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 18px;
+  opacity: .9;
 }
 
 .toc-article .toc-close {
@@ -62,9 +67,6 @@
 
 .toc-article .toc-level-1 {
   margin: 4px 0
-}
-
-.toc-article .toc-child {
 }
 
 @-moz-keyframes cd-bounce-1 {
@@ -173,19 +175,21 @@
 
 .show-toc-btn {
   display: block;
+  top: 13.6%;
   z-index: 10;
-  width: 30px;
-  height: 153px;
+  width: 150px;
+  /* height: 153px; */
   min-height: 14px;
   overflow: hidden;
-  padding: 4px 6px 8px 5px;
+  padding: 0 0 0 10px;
+  letter-spacing: 10px;
   border: 1px solid #ddd;
-  border-right: none;
+  /* border-right: none; */
   position: fixed;
-  right: 40px;
+  right: 100px;
   text-align: center;
   background-color: #f9f9f9;
-  border-radius: 18px 0 0 18px;
+  border-radius: 18px;
 }
 
 .show-toc-btn .btn-bg {
@@ -213,7 +217,7 @@
   /*color: #ea8010;*/
   /*color: #0088CC;*/
   color: #FFFFFF;
-  background: #39C7F7
+  /* background: #39C7F7 */
 }
 .show-toc-btn:hover {
   cursor: pointer;
