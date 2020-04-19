@@ -222,14 +222,18 @@
 
         <!-- 目录内容 -->
         
-            <p class="show-toc-btn" id="show-toc-btn" onmouseover="showToc();" style="display:block">
-                <!-- <span class="btn-bg"></span> -->
-                <span class="btn-text">文章导航</span>
-            </p>
-            <div id="toc-article" class="toc-article" onmouseleave="showBtn();">
-                <!-- <span id="toc-close" class="toc-close" title="隐藏导航">×</span> -->
-                <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装环境"><span class="toc-number">1.</span> <span class="toc-text">安装环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装包管理器"><span class="toc-number">2.</span> <span class="toc-text">安装包管理器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装hexo博客框架"><span class="toc-number">3.</span> <span class="toc-text">安装hexo博客框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建专属博客的文件夹"><span class="toc-number">4.</span> <span class="toc-text">创建专属博客的文件夹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动博客"><span class="toc-number">5.</span> <span class="toc-text">启动博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署到远端"><span class="toc-number">6.</span> <span class="toc-text">部署到远端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装git插件"><span class="toc-number">7.</span> <span class="toc-text">安装git插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#把博客推送到远端"><span class="toc-number">8.</span> <span class="toc-text">把博客推送到远端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更换主题"><span class="toc-number">9.</span> <span class="toc-text">更换主题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#日常三步骤"><span class="toc-number">10.</span> <span class="toc-text">日常三步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署到远端也可以生成后直接部署"><span class="toc-number">11.</span> <span class="toc-text">部署到远端也可以生成后直接部署</span></a></li></ol>
+            <div class="show-toc-btn-parents">
+                <p class="show-toc-btn" id="show-toc-btn" onmouseover="showToc();" style="display:block">
+                    <!-- <span class="btn-bg"></span> -->
+                    <span class="btn-text">文章目录</span>
+                </p>
+            </div>
+            <div class="toc-article-parents">
+                <div id="toc-article" class="toc-article1" onmouseleave="showBtn();" onblur="showBtn();">
+                    <!--<span id="toc-close" class="toc-close" title="隐藏导航">×</span>-->
+                    <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装环境"><span class="toc-number">1.</span> <span class="toc-text">安装环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装包管理器"><span class="toc-number">2.</span> <span class="toc-text">安装包管理器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装hexo博客框架"><span class="toc-number">3.</span> <span class="toc-text">安装hexo博客框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建专属博客的文件夹"><span class="toc-number">4.</span> <span class="toc-text">创建专属博客的文件夹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动博客"><span class="toc-number">5.</span> <span class="toc-text">启动博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署到远端"><span class="toc-number">6.</span> <span class="toc-text">部署到远端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装git插件"><span class="toc-number">7.</span> <span class="toc-text">安装git插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#把博客推送到远端"><span class="toc-number">8.</span> <span class="toc-text">把博客推送到远端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更换主题"><span class="toc-number">9.</span> <span class="toc-text">更换主题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#日常三步骤"><span class="toc-number">10.</span> <span class="toc-text">日常三步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署到远端也可以生成后直接部署"><span class="toc-number">11.</span> <span class="toc-text">部署到远端也可以生成后直接部署</span></a></li></ol>
+                </div>
             </div>
             <script type="text/javascript">
                 function showToc(){
@@ -243,6 +247,10 @@
                     var show_toc_btn = document.getElementById("show-toc-btn");
                     toc_article.setAttribute("style","display:none");
                     show_toc_btn.setAttribute("style","display:block");
+                    setTimeout(function () {
+                        toc_article.style.transition = "all .3s";
+                        toc_article.borderRadius = "1000px";
+                    }, 1000)
                 };
             </script>
         
@@ -412,14 +420,15 @@
 </div>
 
 <div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/10/%E7%94%A8Hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8/" alt="微信分享二维码">
-    </div>
+  <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+  <p>扫一扫，分享到微信</p>
+  <div class="wx-qrcode">
+    <img src="http://qr.liantu.com/api.php?text=http://yoursite.com/2019/11/10/%E7%94%A8Hexo%E6%92%AC%E5%BC%80%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%A7%E9%97%A8/" alt="微信分享二维码">
+  </div>
 </div>
 
 <div class="mask js-mask"></div>
+
             
             <div class="clearfix"></div>
         </div>
@@ -466,6 +475,7 @@
         
     </div>
 </aside>
+
 
 
     <div class="comment-area-customize">
@@ -605,11 +615,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
             
             <div class="clearfix"></div>

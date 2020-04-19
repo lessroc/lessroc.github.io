@@ -355,3 +355,8 @@ margin: auto;
   scrollbar-width: thin;
   scrollbar-color: #999 #eee;
 }
+
+/* 文章内部 */
+.article-inner {
+  border-color: #d1d1d1;
+}
