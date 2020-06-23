@@ -1,3 +1,6 @@
+#container {
+  opacity: .9;
+}
 /* 来必力样式代码 */
 .comment-area-customize {
   line-height: 1.8em;
@@ -90,9 +93,19 @@
   }
 }
 
-/* 文章标题优化 */
+/* 文章标题行距优化 */
 a.article-title:hover {
   color: #39C7F7;
+}
+.article-entry h1 {
+  text-align: center;
+  font-weight: 500;
+}
+.article-entry h2, .article-entry h3, .article-entry h4, .article-entry h5, .article-entry h6 {
+  margin-top: 40px;
+  margin-bottom: 0;
+  color: #574c4c;
+  font-weight: 500;
 }
 
 /* 文章日期优化 */
@@ -131,28 +144,9 @@ a.article-title:hover {
   border-radius: 18px;
 }
 
-/* 文章标题行距优化 */
-.article-entry h2, .article-entry h3, .article-entry h4, .article-entry h5, .article-entry h6 {
-  margin-top: 40px;
-  margin-bottom: 0.5em;
-  color: #574c4c;
-}
-.article-inner h3 {
-   margin-bottom: 0;
-}
-
-/* 文章文本行距优化 */
-.article-entry p {
-  text-align: justify;
-}
-.article-entry p,
-.article-entry table {
-  line-height: 1.6em;
-  margin: .5em 0;
-}
-
-/* 文章代码优化 */
+/* 文章行内代码块优化 */
 .article-entry li code, .article-entry p code {
+  color: #08c;
   padding: 3px 3px;
   margin: 0 3px;
   background: rgba(57, 199, 247, 0.3);
@@ -162,10 +156,13 @@ a.article-title:hover {
   font-size: 14px;
   font-family: "DejaVu Sans Mono", Menlo, Monaco, Andale Mono, Microsoft YaHei, lucida console, Courier New, monospace;
 }
+.mid-col.show .article-entry li code, .mid-col.show .article-entry p code {
+  background: rgba(57, 199, 247, 0.2);
+}
 
 /* 文章代码块优化 */
 .article-entry .highlight {
-  border-radius: 18px;
+  border-radius: 8px;
   transition: all .2s ease-in;
 }
 .article-entry .highlight .line {
@@ -173,9 +170,10 @@ a.article-title:hover {
   min-height: 19px;
   overflow-x: auto;
   white-space: pre;
+  font-family: "DejaVu Sans Mono", Menlo, Monaco, Andale Mono, Microsoft YaHei, lucida console, Courier New, monospace;
 }
 .mid-col.show .article-entry pre {
-  background: rgba(35, 36, 31, 0);
+  background: none;
 }
 .mid-col.show .article-entry .highlight, .article-entry pre {
   background: rgba(39, 40, 34, 0.3);
@@ -183,8 +181,64 @@ a.article-title:hover {
 .mid-col.show .article-entry .highlight:hover {
   background: rgba(39, 40, 34, 1);
 }
-.article-entry pre {
-  font-family: "DejaVu Sans Mono", Menlo, Monaco, Andale Mono, Microsoft YaHei, lucida console, Courier New, monospace;
+/* 禁止代码块行号被鼠标选中 */
+.gutter pre {
+  moz-user-select: -moz-none;
+  -moz-user-select: none;
+  -o-user-select:none;
+  -khtml-user-select:none;
+  -webkit-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+}
+/* 代码块行号右边框填充 */
+.article-entry .highlight .gutter pre {
+  padding-right: 10px;
+  border-right: 1px solid #999;
+}
+.article-entry .highlight .code pre {
+  padding-left: 10px;
+}
+/*!* 代码块样式之评论：黄色 *!
+pre .comment {
+  color:#ffec8b
+}*/
+/* 代码块样式之类的参数、函数的关键字、关键字：蓝色 */
+pre .class .params, pre .function .keyword, pre .keyword, pre .literal {
+  color:#66d9ef
+}
+/* 代码块样式之css的属性值、函数名、参数、标签：白色 */
+pre .css .value, pre .doctype, pre .function, pre .params, pre .tag {
+  color:#ccc
+  /* color:#66d9ef; */
+}
+/* 代码块样式之HTML或者xml的头部元素：红色(颜色较浅) */
+pre .meta{
+  color:#f78da1;
+}
+/* 代码块样式之HTML的标签：红色 */
+pre .tag .name {
+  /* color:#dc3958; */
+  color:#ff6481;
+}
+/* 代码块样式之：色 */
+pre .at_rule, pre .at_rule .keyword, pre .css~* .tag, pre .preprocessor, pre .preprocessor .keyword, pre .title{
+  color:#fa9400
+}
+/* 代码块样式之属性、类、函数的title：绿色 */
+pre .attr,pre .attribute, pre .built_in, pre .class, pre .css~* .class, pre .function .title {
+  color:#a6e22e
+}
+/* 代码块样式之字符串、属性值：猪肝色 */
+pre .string, pre .value {
+  color:#e6db74
+}
+/* 代码块样式之数字：粉红色 */
+pre .number {
+  color:#ffe4b5
+}
+pre .css~* .id, pre .id {
+  color:#fd971f
 }
 
 /* 文章字体优化 */
@@ -192,9 +246,44 @@ body, button, input, select, textarea {
   font-family: "DejaVu Sans Mono", lucida grande, lucida sans unicode, lucida, helvetica, Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;
 }
 
+/* 文章超链接优化 */
+/* 文章中的超链接,鼠标悬浮特效 */
+.article-entry a{
+  display: inline-block;
+  position: relative;
+  color: #08c;
+}
+/* 鼠标悬浮时，变色 */
+.article-entry a:hover{
+  color: #d7191a;
+  transition:.8s;
+}
+/* 鼠标悬浮时，下划线从中间向两边延伸 */
+.article-entry a:hover::after{
+  transform: scaleX(1);
+  /* 旋转，与transform连用；这里作用：鼠标悬浮时，底部的下划线从中间扩散到两边。
+     bottom right :左到右出现，左到右消失（需配合上面的::after）*/
+  transform-origin: bottom center;
+}
+/* 鼠标移开后，下划线从两边向中间消失 */
+.article-entry a::after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1.5px;
+  bottom: 0;
+  left: 0;
+  background-color: #08c;
+  /* 详见：https://www.w3school.com.cn/cssref/pr_transform-origin.asp,
+     旋转，与transform连用；这里作用：鼠标移开后，底部的下划线从中间开始消失 */
+  transform-origin: bottom center;
+  transition: transform .3s ease-out;
+}
+
 /* 文章图片优化 */
 .article img {
-  border-radius: 18px;
+  border-radius: 8px;
 }
 .mid-col.show .article img {
   opacity: 0.3;
@@ -206,11 +295,6 @@ body, button, input, select, textarea {
 /* 文章图片全屏时降低遮罩 */
 .pswp__bg {
   opacity: .8!important;
-}
-
-/* 文章内部 */
-.article-inner {
-  border-color: #d1d1d1;
 }
 
 /* 左列个人主页优化 */
@@ -274,7 +358,17 @@ body, button, input, select, textarea {
   transform: rotateZ(360deg);
 }
 */
-
+/* 个人描述字体粗细 */
+.left-col #header .header-subtitle {
+  font-weight: 300;
+}
+/* 所有文章 友链 关于我 */
+.left-col #header a {
+  font-weight: 300;
+}
+.left-col #header .header-smart-menu a:after {
+  content: "";
+}
 /* 主页随笔自动居中 */
 .left-col #header .header-menu {
 margin: auto;
@@ -407,9 +501,6 @@ margin: auto;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   }
 }
-
-
-
 
 /* Firefox滚动条优化 */
 *, id, class {
