@@ -1,6 +1,17 @@
+/* 全局背景半透明，提高彩带可见区域 */
 #container {
-  opacity: .9;
+  background: rgba(234, 234, 234, .5);
 }
+/* 文章外部背景关闭 */
+.mid-col {
+  background: none;
+}
+/* 内容背景半透明，提高彩带可见区域 */
+.left-col,
+.article {
+  background: rgba(255, 255, 255, .5);
+}
+
 /* 来必力样式代码 */
 .comment-area-customize {
   line-height: 1.8em;
@@ -100,6 +111,7 @@ a.article-title:hover {
 .article-entry h1 {
   text-align: center;
   font-weight: 500;
+  margin-top: 2em;
 }
 .article-entry h2, .article-entry h3, .article-entry h4, .article-entry h5, .article-entry h6 {
   margin-top: 40px;
@@ -172,11 +184,17 @@ a.article-title:hover {
   white-space: pre;
   font-family: "DejaVu Sans Mono", Menlo, Monaco, Andale Mono, Microsoft YaHei, lucida console, Courier New, monospace;
 }
-.mid-col.show .article-entry pre {
+.article-entry pre {
   background: none;
 }
-.mid-col.show .article-entry .highlight, .article-entry pre {
-  background: rgba(39, 40, 34, 0.3);
+.article-entry .highlight {
+  background: rgba(39, 40, 34, .7);
+}
+.article-entry .highlight:hover {
+  background: rgba(39, 40, 34, 1);
+}
+.mid-col.show .article-entry .highlight {
+  background: rgba(39, 40, 34, .3);
 }
 .mid-col.show .article-entry .highlight:hover {
   background: rgba(39, 40, 34, 1);
@@ -193,11 +211,17 @@ a.article-title:hover {
 }
 /* 代码块行号右边框填充 */
 .article-entry .highlight .gutter pre {
+  color: #999;
   padding-right: 10px;
   border-right: 1px solid #999;
 }
 .article-entry .highlight .code pre {
   padding-left: 10px;
+}
+/* 行号颜色 */
+.article-entry .highlight .gutter pre .line {
+  color: #999;
+  text-shadow: 0 1px #444;
 }
 /*!* 代码块样式之评论：黄色 *!
 pre .comment {
@@ -283,11 +307,15 @@ body, button, input, select, textarea {
 
 /* 文章图片优化 */
 .article img {
+  opacity: .7;
   border-radius: 8px;
+  transition: all .2s ease-in;
+}
+.article img:hover {
+  opacity: 1;
 }
 .mid-col.show .article img {
-  opacity: 0.3;
-  transition: all .2s ease-in;
+  opacity: .3;
 }
 .mid-col.show .article img:hover {
   opacity: 1;
