@@ -8,7 +8,7 @@
   /*display: none;*/
   top: 15%;
   z-index: 100;
-  background: #fff;
+  background: rgba(255, 255, 255, .7);
   border: 1px solid #ccc;
   max-width: 0;
   min-width: 0;
@@ -37,7 +37,7 @@
   min-width: 150px;
   max-height: 500px;
   overflow-y: auto;
-  opacity: .8;
+  opacity: 1;
 }
 
 @media screen and (max-width: 800px) {
@@ -205,7 +205,7 @@
   height: 120px;
   min-height: 14px;
   overflow: hidden;
-  padding: 10px 0 0 10px;
+  padding: 10px;
   letter-spacing: 10px;
   border: 1px solid #ddd;
   border-right: none;
@@ -214,6 +214,7 @@
   text-align: center;
   background-color: rgba(249, 249, 249, .5);
   border-radius: 18px 0 0 18px;
+  cursor: default;
   transition: all .3s ease;
 }
 
@@ -233,25 +234,24 @@
   font-size: 12px
 }
 
-.show-toc-btn:hover .btn-bg {
+/*.show-toc-btn:hover .btn-bg {
   background-position: 0 -16px
 }
 
 .show-toc-btn:hover .btn-text {
   font-size: 14px;
-  /*color: #ea8010;*/
-  /*color: #0088CC;*/
+  !*color: #ea8010;*!
+  !*color: #0088CC;*!
   color: #FFFFFF;
-  /* background: #39C7F7 */
+  !* background: #39C7F7 *!
 }
 
 .show-toc-btn:hover {
-  cursor: pointer;
   background: #39C7F7
-}
+}*/
 
 .toc-article1 li ol, .toc-article1 li ul {
-  margin-left: 16px;
+  margin-left: 23px;
 }
 
 .toc-article1 ol, .toc-article1 ul {
@@ -271,9 +271,9 @@
     font-size: 9px;
   }
 
-  .show-toc-btn:hover .btn-text {
+  /*.show-toc-btn:hover .btn-text {
     font-size: 9px;
-  }
+  }*/
 
   .toc-article1 {
     top: 150px;

@@ -395,6 +395,23 @@
 
 <script type="text/javascript" src="/love.js"></script>
 
+
+<!--引用了jquery百度的 cdn 源，也可替换其他的-->
+<script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<!--也可替换其他的lazyload源-->
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery-lazyload/1.9.5/jquery.lazyload.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		//对所有 img 标签进行懒加载
+		$("img").lazyload({
+			//设置占位图，我这里选用了一个 loading 的加载动画
+			placeholder:"/img/loading.gif",
+			//加载效果
+			effect:"fadeIn"
+		});
+	});
+</script>
+
     </div>
     <script>
 	var yiliaConfig = {
