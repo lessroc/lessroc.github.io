@@ -281,6 +281,7 @@ body, button, input, select, textarea {
 /* 鼠标悬浮时，变色 */
 .article-entry a:hover{
   color: #d7191a;
+  height: 1.5px;
   transition:.8s;
 }
 /* 鼠标悬浮时，下划线从中间向两边延伸 */
@@ -296,7 +297,7 @@ body, button, input, select, textarea {
   position: absolute;
   width: 100%;
   transform: scaleX(0);
-  height: 1.5px;
+  height: 2px;
   bottom: 0;
   left: 0;
   background-color: #08c;
