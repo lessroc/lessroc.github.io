@@ -265,17 +265,7 @@ pre .number {
 pre .css~* .id, pre .id {
   color: #fd971f
 }
-
 /* 文章代码块复制功能 */
-/*  这是原代码块 */
-pre .css~* .id, pre .id {
-  color:#fd971f
-}
-/* 代码块复制按钮 */
-.highlight {
-  /* 方便copy代码按钮（btn-copy）的定位 */
-  position: relative;
-}
 .btn-copy {
   display: inline-block;
   cursor: pointer;
@@ -323,8 +313,7 @@ body, button, input, select, textarea {
 /* 鼠标悬浮时，变色 */
 .article-entry a:hover{
   color: #d7191a;
-  height: 1.5px;
-  transition:.8s;
+  transition: .8s;
 }
 /* 鼠标悬浮时，下划线从中间向两边延伸 */
 .article-entry a:hover::after{
@@ -339,7 +328,7 @@ body, button, input, select, textarea {
   position: absolute;
   width: 100%;
   transform: scaleX(0);
-  height: 2px;
+  height: .1rem;
   bottom: 0;
   left: 0;
   background-color: #08c;
