@@ -125,6 +125,12 @@ a.article-title:hover {
 .archive-article-date:hover {
   color: #39C7F7;
 }
+.archive-article-inner .article-meta .archive-article-date {
+  cursor: pointer;
+}
+.archive-article-date:hover time {
+  color: #39C7F7;
+}
 
 /* 展开全文按钮优化 */
 .article-more-link {
@@ -148,10 +154,16 @@ a.article-title:hover {
   background: #39C7F7
 }
 
-/* 文章框圆角化 */
+/* 文章归档框圆角化 */
 .article {
   border: 0;
   /*overflow: hidden;*/
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 18px;
+}
+.archives-wrap {
+  background: rgba(255, 255, 255, 0.5);
   -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   border-radius: 18px;
@@ -340,6 +352,9 @@ body, button, input, select, textarea {
 
 /* 文章图片优化 */
 .article img {
+  display:block;
+  margin-left: auto;
+  margin-right:auto;
   opacity: .7;
   border-radius: 8px;
   transition: all .2s ease-in;
@@ -503,7 +518,7 @@ margin: auto;
 
 /* 公众号 */
 .show_img {
-  padding-bottom: 3px;
+  padding-bottom: 5px;
 }
 .hide_img {
   position: absolute;
@@ -521,18 +536,20 @@ margin: auto;
 .left-col.show .hide_img:hover {
   display: block;
   width: 77%;
-  margin: auto -20px;
+  margin: auto -22px;
   border-radius: 18px;
   -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 .show_img:hover + .hide_img img,
 .hide_img img {
-  transition: border-radius .2s ease-in;
+  transition: all .2s ease-in;
+  background-color: rgba(255, 255, 255, 0);
 }
 .show_img:hover + .hide_img img,
 .hide_img img:hover {
   border-radius: 18px;
+  background-color: rgba(255, 255, 255, 1);
 }
 /* 左列弹出过渡 */
 .left-col.show .hide_img {
