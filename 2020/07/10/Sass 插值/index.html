@@ -6,16 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: hexo | lessroc的博客</title>
+  <title>Sass 插值 | lessroc的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="狂热的初学者">
-<meta name="keywords" content="lessroc">
-<meta property="og:type" content="website">
-<meta property="og:title" content="lessroc的博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;hexo&#x2F;index.html">
+  <meta name="description" content="使用 CSS 预处理器语言的一个主要原因是想使用 Sass 获得一个更好的结构体系 比如说你想写更干净的、高效的和面向对象的 CSS Sass 中的插值(Interpolation)就是重要的一部分">
+<meta name="keywords" content="Sass">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sass 插值">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;07&#x2F;10&#x2F;Sass%20%E6%8F%92%E5%80%BC&#x2F;index.html">
 <meta property="og:site_name" content="lessroc的博客">
-<meta property="og:description" content="狂热的初学者">
+<meta property="og:description" content="使用 CSS 预处理器语言的一个主要原因是想使用 Sass 获得一个更好的结构体系 比如说你想写更干净的、高效的和面向对象的 CSS Sass 中的插值(Interpolation)就是重要的一部分">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2020-07-14T11:03:33.929Z">
 <meta name="twitter:card" content="summary">
   
   
@@ -182,98 +183,251 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
+            <article id="post-Sass 插值" class="article article-type-post " itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                <!-- 文章标题与文章日期 -->
+                
+  
+    <h1 class="article-title" itemprop="name">
+      Sass 插值
+    </h1>
+  
+
+
+                
+                    <a href="/2020/07/10/Sass%20%E6%8F%92%E5%80%BC/" class="archive-article-date">
+  	<time datetime="2020-07-10T08:25:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
+</a>
+                
+                <!-- 把下方的文章标签代码连同样式一并上移到文章标题的下方 -->
+                <div class="article-info-customize article-info-index">
+                    
+                    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sass</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                    
+
+                </div>
+            </header>
+        
+
+        <div class="article-entry" itemprop="articleBody">
             
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
+                <p>使用 <code>CSS</code> 预处理器语言的一个主要原因是想使用 <code>Sass</code> 获得一个更好的结构体系</p>
+<p>比如说你想写更干净的、高效的和面向对象的 <code>CSS</code></p>
+<p><code>Sass</code> 中的插值(Interpolation)就是重要的一部分<a id="more"></a></p>
+<p>让我们看一下下面的例子：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$properties</span>: (margin, padding);</span><br><span class="line">@<span class="keyword">mixin</span> set-value(<span class="variable">$side</span>, <span class="variable">$value</span>) &#123;</span><br><span class="line">  @<span class="keyword">each</span> <span class="variable">$prop</span> in <span class="variable">$properties</span> &#123;</span><br><span class="line">    #&#123;<span class="variable">$prop</span>&#125;-#&#123;<span class="variable">$side</span>&#125;: <span class="variable">$value</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.login-box</span> &#123;</span><br><span class="line">  @<span class="keyword">include</span> set-value(top, 14px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>它可以让变量和属性工作的很完美，上面的代码编译成 <code>CSS</code>：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.login-box</span> &#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">14px</span>;</span><br><span class="line">  <span class="attribute">padding-top</span>: <span class="number">14px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这是 <code>Sass</code> 插值中一个简单的实例</p>
+<p>当你想设置属性值的时候你可以使用字符串插入进来</p>
+<p>另一个有用的用法是构建一个选择器，可以这样使用：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> generate-sizes(<span class="variable">$class</span>, <span class="variable">$small</span>, <span class="variable">$medium</span>, <span class="variable">$big</span>) &#123;</span><br><span class="line">    .#&#123;<span class="variable">$class</span>&#125;-<span class="selector-tag">small</span> &#123; <span class="attribute">font-size</span>: <span class="variable">$small</span>; &#125;</span><br><span class="line">    .#&#123;<span class="variable">$class</span>&#125;-medium &#123; <span class="attribute">font-size</span>: <span class="variable">$medium</span>; &#125;</span><br><span class="line">    .#&#123;<span class="variable">$class</span>&#125;-<span class="selector-tag">big</span> &#123; <span class="attribute">font-size</span>: <span class="variable">$big</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">include</span> generate-sizes(<span class="string">"header-text"</span>, 12px, 20px, 40px);</span><br></pre></td></tr></table></figure>
+
+<p>编译出来的 <code>CSS</code>:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.header-text-small</span> &#123; <span class="attribute">font-size</span>: <span class="number">12px</span>; &#125;</span><br><span class="line"><span class="selector-class">.header-text-medium</span> &#123; <span class="attribute">font-size</span>: <span class="number">20px</span>; &#125;</span><br><span class="line"><span class="selector-class">.header-text-big</span> &#123; <span class="attribute">font-size</span>: <span class="number">40px</span>; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>一旦你发现这一点，你就会想到 <code>mixins</code></p>
+<p>用来生成代码或者生成另一个 <code>mixins</code></p>
+<p>然而，这并不完全是可能的</p>
+<p>第一个限制，这可能会很删除用于 <code>Sass</code> 变量的插值</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$margin-big</span>: <span class="number">40px</span>;</span><br><span class="line"><span class="variable">$margin-medium</span>: <span class="number">20px</span>;</span><br><span class="line"><span class="variable">$margin-small</span>: <span class="number">12px</span>;</span><br><span class="line">@<span class="keyword">mixin</span> set-value(<span class="variable">$size</span>) &#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="variable">$margin</span>-#&#123;<span class="variable">$size</span>&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.login-box</span> &#123;</span><br><span class="line">  @<span class="keyword">include</span> set-value(big);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的 <code>Sass</code> 代码编译出来，你会得到下面的信息：</p>
+<p><code>error style.scss (Line 5: Undefined variable: &quot;$margin-&quot;.)</code></p>
+<p>所以，<code>#{}</code>语法并不是随处可用，你也不能在 <code>mixin</code> 中调用：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> updated-status &#123;</span><br><span class="line">    <span class="selector-tag">margin-top</span>: 20<span class="selector-tag">px</span>;</span><br><span class="line">    <span class="selector-tag">background</span>: <span class="selector-id">#F00</span>;</span><br><span class="line">&#125;</span><br><span class="line">$flag: "status";</span><br><span class="line"><span class="selector-class">.navigation</span> &#123;</span><br><span class="line">    @include updated-#&#123;$flag&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码在编译成 <code>CSS</code> 时同样会报错：</p>
+<p><code>error style.scss (Line 7: Invalid CSS after &quot;...nclude updated-&quot;: expected &quot;}&quot;, was &quot;#{$flag};&quot;)</code></p>
+<p>幸运的是，可以使用 <code>@extend</code> 中使用插值，例如：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">%updated-status &#123;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#F00</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.selected-status</span> &#123;</span><br><span class="line">    <span class="attribute">font-weight</span>: bold;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$flag</span>: <span class="string">"status"</span>;</span><br><span class="line"><span class="selector-class">.navigation</span> &#123;</span><br><span class="line">    @<span class="keyword">extend</span> %updated-#&#123;<span class="variable">$flag</span>&#125;;</span><br><span class="line">    @<span class="keyword">extend</span> .selected-#&#123;<span class="variable">$flag</span>&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的 <code>Sass</code> 代码是可以运行的</p>
+<p>因为他给了我们力量，可以动态的插入 <code>.class</code> 和 <code>%placeholder</code></p>
+<p>当然他们不能接受像 <code>mixin</code> 这样的参数，上面的代码编译出来的 <code>CSS</code>:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.navigation</span> &#123;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#F00</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.selected-status</span>, <span class="selector-class">.navigation</span> &#123;</span><br><span class="line">    <span class="attribute">font-weight</span>: bold;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+            
+
+            
+                <div class="page-reward">
+                    <a href="javascript:;" class="page-reward-btn tooltip-top">
+                        <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赞赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>你的鼓励·我的动力<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                      
+                      
+                          <div class="reward-box-item">
+                      <img class="reward-img" src="/img/appreciate.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                      
+                  </div>
+                </span>
+              </span>
+            </span>
+                        </div>
+                    </a>
+                </div>
+            
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/11/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2019-11-11T04:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-11</time>
-</a>
+        <div class="article-info article-info-index">
+        <!-- 位于此处的文章标签已移动到上方 -->
+            
+
+            
+                
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/11/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6/">自定义样式文件</a>
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
   </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/10/%E6%90%AD%E5%BB%BA%20Hexo%20%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2019-11-09T16:04:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/10/%E6%90%AD%E5%BB%BA%20Hexo%20%E5%8D%9A%E5%AE%A2/">搭建 Hexo 博客</a>
-    </h1>
-  
+</div>
 
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="page-modal wx-share js-wx-box">
+  <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+  <p>扫一扫，分享到微信</p>
+  <div class="wx-qrcode">
+    <img src="http://qr.liantu.com/api.php?text=http://yoursite.com/2020/07/10/Sass%20%E6%8F%92%E5%80%BC/" alt="微信分享二维码">
   </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+            
+            <div class="clearfix"></div>
+        </div>
+    </div>
 </article>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/10/Sass%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Sass 数据类型
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2020/07/10/Sass%20%E6%B7%B7%E5%90%88%E5%AE%8F%20VS%20%E7%BB%A7%E6%89%BF%20VS%20%E5%8D%A0%E4%BD%8D%E7%AC%A6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Sass 混合宏 VS 继承 VS 占位符</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+    <!-- 目录内容 -->
+    
+    <!-- 目录内容结束 -->
+</aside>
+
+
+
+    <div class="comment-area-customize">
+        <!-- 来必力评论系统 -->
+        
+            <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NzI1OS8yMzc1OQ">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+        
+    </div>
+
+    
+
+    
+
+    
+
+    
 
     
 
@@ -325,9 +479,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: false,

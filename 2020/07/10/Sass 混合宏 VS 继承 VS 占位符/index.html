@@ -6,17 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: hexo | lessroc的博客</title>
+  <title>Sass 混合宏 VS 继承 VS 占位符 | lessroc的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="狂热的初学者">
-<meta name="keywords" content="lessroc">
-<meta property="og:type" content="website">
-<meta property="og:title" content="lessroc的博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;hexo&#x2F;index.html">
+  <meta name="description" content="初学者都常常纠结于这个问题 什么时候用混合宏，什么时候用继承，什么时候使用占位符？ 其实他们各有各的优点与缺点，先来看看他们使用效果：">
+<meta name="keywords" content="Sass">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sass 混合宏 VS 继承 VS 占位符">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;07&#x2F;10&#x2F;Sass%20%E6%B7%B7%E5%90%88%E5%AE%8F%20VS%20%E7%BB%A7%E6%89%BF%20VS%20%E5%8D%A0%E4%BD%8D%E7%AC%A6&#x2F;index.html">
 <meta property="og:site_name" content="lessroc的博客">
-<meta property="og:description" content="狂热的初学者">
+<meta property="og:description" content="初学者都常常纠结于这个问题 什么时候用混合宏，什么时候用继承，什么时候使用占位符？ 其实他们各有各的优点与缺点，先来看看他们使用效果：">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;img.mukewang.com&#x2F;55263aa30001913307940364.jpg">
+<meta property="og:updated_time" content="2020-07-14T10:42:49.185Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;img.mukewang.com&#x2F;55263aa30001913307940364.jpg">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -182,98 +185,295 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
+            <article id="post-Sass 混合宏 VS 继承 VS 占位符" class="article article-type-post " itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                <!-- 文章标题与文章日期 -->
+                
+  
+    <h1 class="article-title" itemprop="name">
+      Sass 混合宏 VS 继承 VS 占位符
+    </h1>
+  
+
+
+                
+                    <a href="/2020/07/10/Sass%20%E6%B7%B7%E5%90%88%E5%AE%8F%20VS%20%E7%BB%A7%E6%89%BF%20VS%20%E5%8D%A0%E4%BD%8D%E7%AC%A6/" class="archive-article-date">
+  	<time datetime="2020-07-10T07:48:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
+</a>
+                
+                <!-- 把下方的文章标签代码连同样式一并上移到文章标题的下方 -->
+                <div class="article-info-customize article-info-index">
+                    
+                    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sass</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                    
+
+                </div>
+            </header>
+        
+
+        <div class="article-entry" itemprop="articleBody">
             
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
+                <p>初学者都常常纠结于这个问题</p>
+<p><strong>什么时候用混合宏，什么时候用继承，什么时候使用占位符？</strong></p>
+<p>其实他们各有各的优点与缺点，先来看看他们使用效果：<a id="more"></a></p>
+<h2 id="Sass-中混合宏的使用"><a href="#Sass-中混合宏的使用" class="headerlink" title="Sass 中混合宏的使用"></a>Sass 中混合宏的使用</h2><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> mt(<span class="variable">$var</span>)&#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="variable">$var</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.block</span> &#123;</span><br><span class="line">  @<span class="keyword">include</span> mt(<span class="number">5px</span>);</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">span</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>:block;</span><br><span class="line">    @<span class="keyword">include</span> mt(<span class="number">5px</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.header</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: orange;</span><br><span class="line">  @<span class="keyword">include</span> mt(<span class="number">5px</span>);</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">span</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>:block;</span><br><span class="line">    @<span class="keyword">include</span> mt(<span class="number">5px</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译出来的 <code>CSS</code>:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.block</span> &#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.block</span> <span class="selector-tag">span</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.header</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: orange;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.header</span> <span class="selector-tag">span</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>总结：</strong>编译出来的 <code>CSS</code> 清晰告诉了大家</p>
+<p>他不会自动合并相同的样式代码，如果在样式文件中调用同一个混合宏</p>
+<p>会产生多个对应的样式代码，造成代码的冗余，这也是 <code>CSS</code> 无法忍受的一件事情</p>
+<p>不过他并不是一无事处，他可以传参数</p>
+<p><strong>个人建议</strong>：如果你的代码块中涉及到变量，建议使用混合宏来创建相同的代码块</p>
+<h2 id="Sass-中继承的使用"><a href="#Sass-中继承的使用" class="headerlink" title="Sass 中继承的使用"></a>Sass 中继承的使用</h2><p>同样的，将上面代码中的混合宏，使用类名来表示，然后通过继承来调用：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.mt</span>&#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">5px</span>;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.block</span> &#123;</span><br><span class="line">  @<span class="keyword">extend</span> .mt;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">span</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>:block;</span><br><span class="line">    @<span class="keyword">extend</span> .mt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.header</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: orange;</span><br><span class="line">  @<span class="keyword">extend</span> .mt;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">span</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>:block;</span><br><span class="line">    @<span class="keyword">extend</span> .mt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译出来的 <code>CSS</code>:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.mt</span>, <span class="selector-class">.block</span>, <span class="selector-class">.block</span> <span class="selector-tag">span</span>, <span class="selector-class">.header</span>, <span class="selector-class">.header</span> <span class="selector-tag">span</span> &#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.block</span> <span class="selector-tag">span</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.header</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: orange;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.header</span> <span class="selector-tag">span</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>总结：</strong>使用继承后，编译出来的 <code>CSS</code> 会将使用继承的代码块合并到一起</p>
+<p>通过组合选择器的方式向大家展现</p>
+<p>比如 <code>.mt</code>, <code>.block</code>, <code>.block span</code>, <code>.header</code>, <code>.header span</code></p>
+<p>这样编译出来的代码相对于混合宏来说要干净的多，也是 <code>CSS</code> 期望看到</p>
+<p>但是他不能传变量参数</p>
+<p><strong>个人建议</strong>：如果你的代码块不需要传任何变量参数，而且有一个基类已在文件中存在那么建议使用 Sass 的继承</p>
+<h2 id="Sass-中占位符的使用"><a href="#Sass-中占位符的使用" class="headerlink" title="Sass 中占位符的使用"></a>Sass 中占位符的使用</h2><p>最后来看占位符，将上面代码中的基类 <code>.mt</code> 换成 <code>Sass</code> 的占位符格式：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">%mt&#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">5px</span>;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.block</span> &#123;</span><br><span class="line">  @<span class="keyword">extend</span> %mt;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">span</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>:block;</span><br><span class="line">    @<span class="keyword">extend</span> %mt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.header</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: orange;</span><br><span class="line">  @<span class="keyword">extend</span> %mt;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">span</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>:block;</span><br><span class="line">    @<span class="keyword">extend</span> %mt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译出来的 <code>CSS</code>:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.block</span>, <span class="selector-class">.block</span> <span class="selector-tag">span</span>, <span class="selector-class">.header</span>, <span class="selector-class">.header</span> <span class="selector-tag">span</span> &#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.block</span> <span class="selector-tag">span</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.header</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: orange;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.header</span> <span class="selector-tag">span</span> </span><br><span class="line">  <span class="selector-tag">display</span>: <span class="selector-tag">block</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>总结：</strong>编译出来的 <code>CSS</code> 代码和使用继承基本上是相同</p>
+<p>只是不会在代码中生成占位符 <code>mt</code> 的选择器，那么占位符和继承的主要区别是：</p>
+<ul>
+<li><p>占位符是独立定义，不调用的时候是不会在 <code>CSS</code> 中产生任何代码</p>
+</li>
+<li><p>继承是首先有一个基类存在，不管调用与不调用，基类的样式都将会出现在编译出来的 <code>CSS</code> 代码中</p>
+</li>
+</ul>
+<p>来看一个表格：</p>
+<p><img src="http://img.mukewang.com/55263aa30001913307940364.jpg" alt="混合宏 VS 继承 VS 占位符"></p>
+
+            
+
+            
+                <div class="page-reward">
+                    <a href="javascript:;" class="page-reward-btn tooltip-top">
+                        <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赞赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>你的鼓励·我的动力<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                      
+                      
+                          <div class="reward-box-item">
+                      <img class="reward-img" src="/img/appreciate.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                      
+                  </div>
+                </span>
+              </span>
+            </span>
+                        </div>
+                    </a>
+                </div>
+            
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/11/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2019-11-11T04:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-11</time>
-</a>
+        <div class="article-info article-info-index">
+        <!-- 位于此处的文章标签已移动到上方 -->
+            
+
+            
+                
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/11/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6/">自定义样式文件</a>
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
   </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/10/%E6%90%AD%E5%BB%BA%20Hexo%20%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2019-11-09T16:04:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/10/%E6%90%AD%E5%BB%BA%20Hexo%20%E5%8D%9A%E5%AE%A2/">搭建 Hexo 博客</a>
-    </h1>
-  
+</div>
 
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="page-modal wx-share js-wx-box">
+  <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+  <p>扫一扫，分享到微信</p>
+  <div class="wx-qrcode">
+    <img src="http://qr.liantu.com/api.php?text=http://yoursite.com/2020/07/10/Sass%20%E6%B7%B7%E5%90%88%E5%AE%8F%20VS%20%E7%BB%A7%E6%89%BF%20VS%20%E5%8D%A0%E4%BD%8D%E7%AC%A6/" alt="微信分享二维码">
   </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+            
+            <div class="clearfix"></div>
+        </div>
+    </div>
 </article>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/10/Sass%20%E6%8F%92%E5%80%BC/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Sass 插值
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2020/07/10/Sass%20%E5%8D%A0%E4%BD%8D%E7%AC%A6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Sass 占位符 %(placeholder)</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item"></span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sass-中混合宏的使用"><span class="toc-number">1.</span> <span class="toc-text">Sass 中混合宏的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sass-中继承的使用"><span class="toc-number">2.</span> <span class="toc-text">Sass 中继承的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sass-中占位符的使用"><span class="toc-number">3.</span> <span class="toc-text">Sass 中占位符的使用</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+    <!-- 目录内容 -->
+    
+        <p id="show-toc-btn" class="show-toc-btn" onmouseenter="showToc();" onmouseleave="showBtn();" style="display:block">
+            <!-- <span class="btn-bg"></span> -->
+            <span class="btn-text">文章目录</span>
+        </p>
+        <div id="toc-article1" class="toc-article1" onmouseleave="showBtn();" onmouseenter="showToc();">
+            <!--<span id="toc-close" class="toc-close" title="隐藏导航">×</span>-->
+            <strong class="toc-title">文章目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sass-中混合宏的使用"><span class="toc-number">1.</span> <span class="toc-text">Sass 中混合宏的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sass-中继承的使用"><span class="toc-number">2.</span> <span class="toc-text">Sass 中继承的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sass-中占位符的使用"><span class="toc-number">3.</span> <span class="toc-text">Sass 中占位符的使用</span></a></li></ol>
+        </div>
+        <script type="text/javascript">
+		    function showToc(){
+		    	var toc_article = document.getElementById("toc-article1")
+		    	var show_toc_btn = document.getElementById("show-toc-btn")
+		    	// toc_article.setAttribute("style","display:block")
+		    	// show_toc_btn.setAttribute("style","display:none")
+		    	show_toc_btn.style.opacity = "0"
+		    	// toc_article.style.marginRight = "0"
+		    }
+		    function showBtn(){
+		    	var toc_article = document.getElementById("toc-article1")
+		    	var show_toc_btn = document.getElementById("show-toc-btn")
+		    	// toc_article.setAttribute("style","display:none");
+		    	// show_toc_btn.setAttribute("style","display:block");
+		    	show_toc_btn.style.opacity = "1"
+		    	// toc_article.style.marginRight = "-350px"
+		    }
+        </script>
+    
+    <!-- 目录内容结束 -->
+</aside>
+
+
+
+    <div class="comment-area-customize">
+        <!-- 来必力评论系统 -->
+        
+            <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NzI1OS8yMzc1OQ">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+        
+    </div>
+
+    
+
+    
+
+    
+
+    
 
     
 
@@ -325,9 +525,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: false,

@@ -6,16 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: hexo | lessroc的博客</title>
+  <title>Sass 嵌套 | lessroc的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="狂热的初学者">
-<meta name="keywords" content="lessroc">
-<meta property="og:type" content="website">
-<meta property="og:title" content="lessroc的博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;hexo&#x2F;index.html">
+  <meta name="description" content="Sass 中还提供了选择器嵌套功能 但这也并不意味着你在 Sass 中的嵌套是无节制的 因为你嵌套的层级越深，编译出来的 CSS 代码的选择器层级将越深 这往往是大家不愿意看到的一点。这个特性现在正被众多开发者滥用 选择器嵌套为样式表的作者提供了一个通过局部选择器相互嵌套实现全局选择的方法">
+<meta name="keywords" content="Sass">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sass 嵌套">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;07&#x2F;10&#x2F;Sass%20%E5%B5%8C%E5%A5%97&#x2F;index.html">
 <meta property="og:site_name" content="lessroc的博客">
-<meta property="og:description" content="狂热的初学者">
+<meta property="og:description" content="Sass 中还提供了选择器嵌套功能 但这也并不意味着你在 Sass 中的嵌套是无节制的 因为你嵌套的层级越深，编译出来的 CSS 代码的选择器层级将越深 这往往是大家不愿意看到的一点。这个特性现在正被众多开发者滥用 选择器嵌套为样式表的作者提供了一个通过局部选择器相互嵌套实现全局选择的方法">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2020-07-14T08:34:27.166Z">
 <meta name="twitter:card" content="summary">
   
   
@@ -182,98 +183,294 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
+            <article id="post-Sass 嵌套" class="article article-type-post " itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                <!-- 文章标题与文章日期 -->
+                
+  
+    <h1 class="article-title" itemprop="name">
+      Sass 嵌套
+    </h1>
+  
+
+
+                
+                    <a href="/2020/07/10/Sass%20%E5%B5%8C%E5%A5%97/" class="archive-article-date">
+  	<time datetime="2020-07-10T02:37:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
+</a>
+                
+                <!-- 把下方的文章标签代码连同样式一并上移到文章标题的下方 -->
+                <div class="article-info-customize article-info-index">
+                    
+                    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sass</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                    
+
+                </div>
+            </header>
+        
+
+        <div class="article-entry" itemprop="articleBody">
             
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
+                <p><code>Sass</code> 中还提供了选择器嵌套功能</p>
+<p>但这也并不意味着你在 <code>Sass</code> 中的嵌套是无节制的</p>
+<p>因为你嵌套的层级越深，编译出来的 <code>CSS</code> 代码的选择器层级将越深</p>
+<p>这往往是大家不愿意看到的一点。这个特性现在正被众多开发者滥用</p>
+<p>选择器嵌套为样式表的作者提供了一个通过局部选择器相互嵌套实现全局选择的方法<a id="more"></a></p>
+<p><code>Sass</code> 的嵌套分为三种：</p>
+<ul>
+<li>选择器嵌套</li>
+<li>属性嵌套</li>
+<li>伪类嵌套</li>
+</ul>
+<h2 id="选择器嵌套"><a href="#选择器嵌套" class="headerlink" title="选择器嵌套"></a>选择器嵌套</h2><p>假设我们有一段这样的结构：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">nav</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">“##”</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">“##”</span>&gt;</span>About<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">“##”</span>&gt;</span>Blog<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>想选中 <code>header</code> 中的 a 标签，在写 <code>CSS</code> 会这样写：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">nav</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>:red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">header</span> <span class="selector-tag">nav</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>:green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>那么在 <code>Sass</code> 中，就可以使用选择器的嵌套来实现：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">nav</span> &#123;</span><br><span class="line">  <span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line"></span><br><span class="line">    <span class="selector-tag">header</span> &amp; &#123;</span><br><span class="line">      <span class="attribute">color</span>:green;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="属性嵌套"><a href="#属性嵌套" class="headerlink" title="属性嵌套"></a>属性嵌套</h2><p><code>Sass</code> 中还提供属性嵌套，<code>CSS</code> 有一些属性前缀相同，只是后缀不一样</p>
+<p>比如：<code>border-top</code> / <code>border-right</code>，与这个类似的还有 <code>margin</code>、<code>padding</code>、<code>font</code> 等属性</p>
+<p>假设你的样式中用到了：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">border-top</span>: <span class="number">1px</span> solid red;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>Sass</code> 中我们可以这样写：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: &#123;</span><br><span class="line">   top: <span class="number">1px</span> solid red;</span><br><span class="line">   <span class="attribute">bottom</span>: <span class="number">1px</span> solid green;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="伪类嵌套"><a href="#伪类嵌套" class="headerlink" title="伪类嵌套"></a>伪类嵌套</h2><p>其实伪类嵌套和属性嵌套非常类似，只不过他需要借助 <code>&amp;</code> 符号一起配合使用</p>
+<p>就拿经典的 <code>clearfix</code> 为例吧：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span>&#123;</span><br><span class="line">  &amp;:before,</span><br><span class="line">  &amp;:after &#123;</span><br><span class="line">    <span class="attribute">content</span>:<span class="string">""</span>;</span><br><span class="line">    <span class="attribute">display</span>: table;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;:after &#123;</span><br><span class="line">    <span class="attribute">clear</span>:both;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译出来的 <code>CSS</code>：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">clearfix</span><span class="selector-pseudo">:before</span>, <span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">""</span>;</span><br><span class="line">  <span class="attribute">display</span>: table;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="避免选择器嵌套："><a href="#避免选择器嵌套：" class="headerlink" title="避免选择器嵌套："></a>避免选择器嵌套：</h2><p>选择器嵌套最大的问题是将使最终的代码难以阅读</p>
+<p>开发者需要花费巨大精力计算不同缩进级别下的选择器具体的表现效果</p>
+<p>选择器越具体则声明语句越冗长，而且对最近选择器的引用 <code>&amp;</code> 也越频繁</p>
+<p>在某些时候，出现混淆选择器路径和探索下一级选择器的错误率很高，这非常不值得</p>
+<p>为了防止此类情况，我们应该尽可能避免选择器嵌套。然而，显然只有少数情况适应这一措施</p>
+
+            
+
+            
+                <div class="page-reward">
+                    <a href="javascript:;" class="page-reward-btn tooltip-top">
+                        <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赞赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>你的鼓励·我的动力<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                      
+                      
+                          <div class="reward-box-item">
+                      <img class="reward-img" src="/img/appreciate.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                      
+                  </div>
+                </span>
+              </span>
+            </span>
+                        </div>
+                    </a>
+                </div>
+            
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/11/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2019-11-11T04:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-11</time>
-</a>
+        <div class="article-info article-info-index">
+        <!-- 位于此处的文章标签已移动到上方 -->
+            
+
+            
+                
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/11/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6/">自定义样式文件</a>
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
   </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/10/%E6%90%AD%E5%BB%BA%20Hexo%20%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2019-11-09T16:04:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/10/%E6%90%AD%E5%BB%BA%20Hexo%20%E5%8D%9A%E5%AE%A2/">搭建 Hexo 博客</a>
-    </h1>
-  
+</div>
 
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="page-modal wx-share js-wx-box">
+  <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+  <p>扫一扫，分享到微信</p>
+  <div class="wx-qrcode">
+    <img src="http://qr.liantu.com/api.php?text=http://yoursite.com/2020/07/10/Sass%20%E5%B5%8C%E5%A5%97/" alt="微信分享二维码">
   </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+            
+            <div class="clearfix"></div>
+        </div>
+    </div>
 </article>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/10/Sass%20%E6%B7%B7%E5%90%88%E5%AE%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Sass 混合宏
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2020/07/10/Sass%20%E7%BC%96%E8%AF%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Sass 编译</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item"></span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#选择器嵌套"><span class="toc-number">1.</span> <span class="toc-text">选择器嵌套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性嵌套"><span class="toc-number">2.</span> <span class="toc-text">属性嵌套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#伪类嵌套"><span class="toc-number">3.</span> <span class="toc-text">伪类嵌套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#避免选择器嵌套："><span class="toc-number">4.</span> <span class="toc-text">避免选择器嵌套：</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+    <!-- 目录内容 -->
+    
+        <p id="show-toc-btn" class="show-toc-btn" onmouseenter="showToc();" onmouseleave="showBtn();" style="display:block">
+            <!-- <span class="btn-bg"></span> -->
+            <span class="btn-text">文章目录</span>
+        </p>
+        <div id="toc-article1" class="toc-article1" onmouseleave="showBtn();" onmouseenter="showToc();">
+            <!--<span id="toc-close" class="toc-close" title="隐藏导航">×</span>-->
+            <strong class="toc-title">文章目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#选择器嵌套"><span class="toc-number">1.</span> <span class="toc-text">选择器嵌套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性嵌套"><span class="toc-number">2.</span> <span class="toc-text">属性嵌套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#伪类嵌套"><span class="toc-number">3.</span> <span class="toc-text">伪类嵌套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#避免选择器嵌套："><span class="toc-number">4.</span> <span class="toc-text">避免选择器嵌套：</span></a></li></ol>
+        </div>
+        <script type="text/javascript">
+		    function showToc(){
+		    	var toc_article = document.getElementById("toc-article1")
+		    	var show_toc_btn = document.getElementById("show-toc-btn")
+		    	// toc_article.setAttribute("style","display:block")
+		    	// show_toc_btn.setAttribute("style","display:none")
+		    	show_toc_btn.style.opacity = "0"
+		    	// toc_article.style.marginRight = "0"
+		    }
+		    function showBtn(){
+		    	var toc_article = document.getElementById("toc-article1")
+		    	var show_toc_btn = document.getElementById("show-toc-btn")
+		    	// toc_article.setAttribute("style","display:none");
+		    	// show_toc_btn.setAttribute("style","display:block");
+		    	show_toc_btn.style.opacity = "1"
+		    	// toc_article.style.marginRight = "-350px"
+		    }
+        </script>
+    
+    <!-- 目录内容结束 -->
+</aside>
+
+
+
+    <div class="comment-area-customize">
+        <!-- 来必力评论系统 -->
+        
+            <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NzI1OS8yMzc1OQ">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+        
+    </div>
+
+    
+
+    
+
+    
+
+    
 
     
 
@@ -325,9 +522,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: false,

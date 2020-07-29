@@ -6,16 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: hexo | lessroc的博客</title>
+  <title>Sass 编译 | lessroc的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="狂热的初学者">
-<meta name="keywords" content="lessroc">
-<meta property="og:type" content="website">
-<meta property="og:title" content="lessroc的博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;hexo&#x2F;index.html">
+  <meta name="description" content="Sass 安装过于简单 … 略 单文件编译1sass &amp;lt;要编译的 Sass 文件路径&amp;gt;&#x2F;style.scss:&amp;lt;要输出 CSS 文件路径&amp;gt;&#x2F;style.css  这是对一个单文件进行编译，如果想对整个项目所有 Sass 文件编译成 CSS 文件，可以这样操作： 多文件编译1sass sass&#x2F;:css&#x2F;  上面的命令表示将项目中 sass 文件夹中所有 .scss(.sas">
+<meta name="keywords" content="Sass">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sass 编译">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;07&#x2F;10&#x2F;Sass%20%E7%BC%96%E8%AF%91&#x2F;index.html">
 <meta property="og:site_name" content="lessroc的博客">
-<meta property="og:description" content="狂热的初学者">
+<meta property="og:description" content="Sass 安装过于简单 … 略 单文件编译1sass &amp;lt;要编译的 Sass 文件路径&amp;gt;&#x2F;style.scss:&amp;lt;要输出 CSS 文件路径&amp;gt;&#x2F;style.css  这是对一个单文件进行编译，如果想对整个项目所有 Sass 文件编译成 CSS 文件，可以这样操作： 多文件编译1sass sass&#x2F;:css&#x2F;  上面的命令表示将项目中 sass 文件夹中所有 .scss(.sas">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2020-07-14T10:44:41.647Z">
 <meta name="twitter:card" content="summary">
   
   
@@ -182,98 +183,288 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
+            <article id="post-Sass 编译" class="article article-type-post " itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                <!-- 文章标题与文章日期 -->
+                
+  
+    <h1 class="article-title" itemprop="name">
+      Sass 编译
+    </h1>
+  
+
+
+                
+                    <a href="/2020/07/10/Sass%20%E7%BC%96%E8%AF%91/" class="archive-article-date">
+  	<time datetime="2020-07-10T02:09:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
+</a>
+                
+                <!-- 把下方的文章标签代码连同样式一并上移到文章标题的下方 -->
+                <div class="article-info-customize article-info-index">
+                    
+                    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sass</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                    
+
+                </div>
+            </header>
+        
+
+        <div class="article-entry" itemprop="articleBody">
             
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
+                <p><code>Sass</code> 安装过于简单 … 略</p>
+<h2 id="单文件编译"><a href="#单文件编译" class="headerlink" title="单文件编译"></a>单文件编译</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sass &lt;要编译的 Sass 文件路径&gt;/style.scss:&lt;要输出 CSS 文件路径&gt;/style.css</span><br></pre></td></tr></table></figure>
+
+<p>这是对一个单文件进行编译，如果想对整个项目所有 <code>Sass</code> 文件编译成 <code>CSS</code> 文件，可以这样操作：</p>
+<h2 id="多文件编译"><a href="#多文件编译" class="headerlink" title="多文件编译"></a>多文件编译</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sass sass/:css/</span><br></pre></td></tr></table></figure>
+
+<p>上面的命令表示将项目中 <code>sass</code> 文件夹中所有 <code>.scss(.sass)</code> 文件编译成 <code>.css</code> 文件</p>
+<p>并且将这些 <code>CSS</code> 文件都放在项目中 <code>css</code> 文件夹中<a id="more"></a></p>
+<h2 id="开启-watch-功能"><a href="#开启-watch-功能" class="headerlink" title="开启 watch 功能"></a>开启 watch 功能</h2><p>开启后只要被 <code>watch</code> 的文件进行修改并保存</p>
+<p>就能自动监测到代码的变化，并且再次编译到指定目录：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sass --watch &lt;要编译的 Sass 文件路径&gt;/style.scss:&lt;要输出 CSS 文件路径&gt;/style.css</span><br></pre></td></tr></table></figure>
+
+<h2 id="Sass-不同样式风格的输出方法"><a href="#Sass-不同样式风格的输出方法" class="headerlink" title="Sass 不同样式风格的输出方法"></a>Sass 不同样式风格的输出方法</h2><p>众所周知，每个人编写的 <code>CSS</code> 样式风格都不一样</p>
+<p>有的喜欢将所有样式代码都写在同一行，而有的喜欢将样式分行书写</p>
+<p>在 <code>Sass</code> 中编译出来的样式风格也可以按不同的样式风格显示</p>
+<p>其主要包括以下几种样式风格：</p>
+<ol>
+<li><strong>嵌套输出方式 nested</strong>      (默认风格)</li>
+<li><strong>展开输出方式 expanded</strong>    (浏览舒适)</li>
+<li><strong>紧凑输出方式 compact</strong>     (长文件首选)</li>
+<li><strong>压缩输出方式 compressed</strong>  (上线专用)</li>
+</ol>
+<p><strong>用法：</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sass &lt;要编译的 Sass 文件路径&gt;/style.scss:&lt;要输出 CSS 文件路径&gt;/style.css --style expanded</span><br></pre></td></tr></table></figure>
+
+<h2 id="常见的编译错误"><a href="#常见的编译错误" class="headerlink" title="常见的编译错误"></a>常见的编译错误</h2><p>在编译 <code>Sass</code> 代码时常常会碰到一些错误，让编译失败</p>
+<p>这样的错误有系统造成的也有人为造成的，但大部分都是人为过失引起编译失败</p>
+<p>而最为常见的一个错误就是字符编译引起的</p>
+<p>在 <code>Sass</code> 的编译的过程中，是不是支持 <code>GBK</code> 编码的</p>
+<p>所以在创建 <code>Sass</code> 文件时，就需要将文件编码设置为 <code>utf-8</code></p>
+<p>另外一个错误就是路径中的中文字符引起的</p>
+<p>建议在项目中文件命名或者文件目录命名不要使用中文字符</p>
+<p>而至于人为失误造成的编译失败，在编译过程中都会有具体的说明</p>
+<p>大家可以根据编译器提供的错误信息进行对应的修改</p>
+
+            
+
+            
+                <div class="page-reward">
+                    <a href="javascript:;" class="page-reward-btn tooltip-top">
+                        <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赞赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>你的鼓励·我的动力<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                      
+                      
+                          <div class="reward-box-item">
+                      <img class="reward-img" src="/img/appreciate.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                      
+                  </div>
+                </span>
+              </span>
+            </span>
+                        </div>
+                    </a>
+                </div>
+            
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/11/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2019-11-11T04:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-11</time>
-</a>
+        <div class="article-info article-info-index">
+        <!-- 位于此处的文章标签已移动到上方 -->
+            
+
+            
+                
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/11/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6/">自定义样式文件</a>
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
   </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/10/%E6%90%AD%E5%BB%BA%20Hexo%20%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2019-11-09T16:04:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/10/%E6%90%AD%E5%BB%BA%20Hexo%20%E5%8D%9A%E5%AE%A2/">搭建 Hexo 博客</a>
-    </h1>
-  
+</div>
 
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="page-modal wx-share js-wx-box">
+  <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+  <p>扫一扫，分享到微信</p>
+  <div class="wx-qrcode">
+    <img src="http://qr.liantu.com/api.php?text=http://yoursite.com/2020/07/10/Sass%20%E7%BC%96%E8%AF%91/" alt="微信分享二维码">
   </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+            
+            <div class="clearfix"></div>
+        </div>
+    </div>
 </article>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/10/Sass%20%E5%B5%8C%E5%A5%97/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Sass 嵌套
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/11/11/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">自定义样式文件</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item"></span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#单文件编译"><span class="toc-number">1.</span> <span class="toc-text">单文件编译</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多文件编译"><span class="toc-number">2.</span> <span class="toc-text">多文件编译</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开启-watch-功能"><span class="toc-number">3.</span> <span class="toc-text">开启 watch 功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sass-不同样式风格的输出方法"><span class="toc-number">4.</span> <span class="toc-text">Sass 不同样式风格的输出方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见的编译错误"><span class="toc-number">5.</span> <span class="toc-text">常见的编译错误</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+    <!-- 目录内容 -->
+    
+        <p id="show-toc-btn" class="show-toc-btn" onmouseenter="showToc();" onmouseleave="showBtn();" style="display:block">
+            <!-- <span class="btn-bg"></span> -->
+            <span class="btn-text">文章目录</span>
+        </p>
+        <div id="toc-article1" class="toc-article1" onmouseleave="showBtn();" onmouseenter="showToc();">
+            <!--<span id="toc-close" class="toc-close" title="隐藏导航">×</span>-->
+            <strong class="toc-title">文章目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#单文件编译"><span class="toc-number">1.</span> <span class="toc-text">单文件编译</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多文件编译"><span class="toc-number">2.</span> <span class="toc-text">多文件编译</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开启-watch-功能"><span class="toc-number">3.</span> <span class="toc-text">开启 watch 功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sass-不同样式风格的输出方法"><span class="toc-number">4.</span> <span class="toc-text">Sass 不同样式风格的输出方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见的编译错误"><span class="toc-number">5.</span> <span class="toc-text">常见的编译错误</span></a></li></ol>
+        </div>
+        <script type="text/javascript">
+		    function showToc(){
+		    	var toc_article = document.getElementById("toc-article1")
+		    	var show_toc_btn = document.getElementById("show-toc-btn")
+		    	// toc_article.setAttribute("style","display:block")
+		    	// show_toc_btn.setAttribute("style","display:none")
+		    	show_toc_btn.style.opacity = "0"
+		    	// toc_article.style.marginRight = "0"
+		    }
+		    function showBtn(){
+		    	var toc_article = document.getElementById("toc-article1")
+		    	var show_toc_btn = document.getElementById("show-toc-btn")
+		    	// toc_article.setAttribute("style","display:none");
+		    	// show_toc_btn.setAttribute("style","display:block");
+		    	show_toc_btn.style.opacity = "1"
+		    	// toc_article.style.marginRight = "-350px"
+		    }
+        </script>
+    
+    <!-- 目录内容结束 -->
+</aside>
+
+
+
+    <div class="comment-area-customize">
+        <!-- 来必力评论系统 -->
+        
+            <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NzI1OS8yMzc1OQ">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+        
+    </div>
+
+    
+
+    
+
+    
+
+    
 
     
 
@@ -325,9 +516,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: false,

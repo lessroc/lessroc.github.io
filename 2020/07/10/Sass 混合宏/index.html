@@ -6,16 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: hexo | lessroc的博客</title>
+  <title>Sass 混合宏 | lessroc的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="狂热的初学者">
-<meta name="keywords" content="lessroc">
-<meta property="og:type" content="website">
-<meta property="og:title" content="lessroc的博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;hexo&#x2F;index.html">
+  <meta name="description" content="如果整个网站中有几处小样式类似 比如颜色，字体等，在 Sass 可以使用变量来统一处理 那么这种选择还是不错的。但当你的样式变得越来越复杂 需要重复使用大段的样式时，使用变量就无法达到我们目了 这个时候 Sass 中的混合宏就会变得非常有意义">
+<meta name="keywords" content="Sass">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sass 混合宏">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;07&#x2F;10&#x2F;Sass%20%E6%B7%B7%E5%90%88%E5%AE%8F&#x2F;index.html">
 <meta property="og:site_name" content="lessroc的博客">
-<meta property="og:description" content="狂热的初学者">
+<meta property="og:description" content="如果整个网站中有几处小样式类似 比如颜色，字体等，在 Sass 可以使用变量来统一处理 那么这种选择还是不错的。但当你的样式变得越来越复杂 需要重复使用大段的样式时，使用变量就无法达到我们目了 这个时候 Sass 中的混合宏就会变得非常有意义">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2020-07-14T08:34:31.957Z">
 <meta name="twitter:card" content="summary">
   
   
@@ -182,98 +183,352 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
+            <article id="post-Sass 混合宏" class="article article-type-post " itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                <!-- 文章标题与文章日期 -->
+                
+  
+    <h1 class="article-title" itemprop="name">
+      Sass 混合宏
+    </h1>
+  
+
+
+                
+                    <a href="/2020/07/10/Sass%20%E6%B7%B7%E5%90%88%E5%AE%8F/" class="archive-article-date">
+  	<time datetime="2020-07-10T03:23:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
+</a>
+                
+                <!-- 把下方的文章标签代码连同样式一并上移到文章标题的下方 -->
+                <div class="article-info-customize article-info-index">
+                    
+                    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sass</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                    
+
+                </div>
+            </header>
+        
+
+        <div class="article-entry" itemprop="articleBody">
             
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
+                <p>如果整个网站中有几处小样式类似</p>
+<p>比如颜色，字体等，在 <code>Sass</code> 可以使用变量来统一处理</p>
+<p>那么这种选择还是不错的。但当你的样式变得越来越复杂</p>
+<p>需要重复使用大段的样式时，使用变量就无法达到我们目了</p>
+<p>这个时候 <code>Sass</code> 中的<strong>混合宏</strong>就会变得非常有意义<a id="more"></a></p>
+<h2 id="声明混合宏"><a href="#声明混合宏" class="headerlink" title="声明混合宏"></a>声明混合宏</h2><h3 id="不带参数混合宏"><a href="#不带参数混合宏" class="headerlink" title="不带参数混合宏"></a>不带参数混合宏</h3><p>在 <code>Sass</code> 中，使用 <code>@mixin</code> 来声明一个混合宏，如：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> border-radius&#123;</span><br><span class="line">  -webkit-<span class="attribute">border-radius</span>: <span class="number">5px</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中 <code>@mixin</code> 是用来声明混合宏的关键词</p>
+<p>有点类似 <code>CSS</code> 中的 <code>@media</code>、<code>@font-face</code> 一样</p>
+<p><code>border-radius</code> 是混合宏的名称。大括号里面是复用的样式代码</p>
+<h3 id="带参数混合宏"><a href="#带参数混合宏" class="headerlink" title="带参数混合宏"></a>带参数混合宏</h3><p>除了声明一个不带参数的混合宏之外，还可以在定义混合宏时带有参数，如：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> border-radius(<span class="variable">$radius</span>:<span class="number">5px</span>)&#123;</span><br><span class="line">  -webkit-<span class="attribute">border-radius</span>: <span class="variable">$radius</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="variable">$radius</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="复杂的混合宏"><a href="#复杂的混合宏" class="headerlink" title="复杂的混合宏"></a>复杂的混合宏</h3><p>上面是一个简单的定义混合宏的方法</p>
+<p>当然，<code>Sass</code> 中的混合宏还提供更为复杂的</p>
+<p>你可以在大括号里面写上带有逻辑关系，帮助更好的做你想做的事情，如：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> box-shadow(<span class="variable">$shadow</span>...) &#123;</span><br><span class="line">  @<span class="keyword">if</span> length(<span class="variable">$shadow</span>) &gt;= 1 &#123;</span><br><span class="line">    @<span class="keyword">include</span> prefixer(box-shadow, <span class="variable">$shadow</span>);</span><br><span class="line">  &#125; @<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="variable">$shadow</span>:<span class="number">0</span> <span class="number">0</span> <span class="number">4px</span> rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">3</span>);</span><br><span class="line">    @<span class="keyword">include</span> prefixer(box-shadow, <span class="variable">$shadow</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个 <code>box-shadow</code> 的混合宏，带有多个参数，这个时候可以使用 <code>...</code> 来替代</p>
+<p>简单的解释一下，当 <code>$shadow</code> 的参数数量值大于或等于 <code>1</code> 时，表示有多个阴影值</p>
+<p>反之调用默认的参数值 <code>0 0 4px rgba(0,0,0,.3)</code> </p>
+<p>注：复杂的混合宏中的逻辑关系（@if…@else）后面小节会有讲解</p>
+<h2 id="调用混合宏"><a href="#调用混合宏" class="headerlink" title="调用混合宏"></a>调用混合宏</h2><p>在 <code>Sass</code> 中通过 <code>@mixin</code> 关键词声明了一个混合宏</p>
+<p>那么在实际调用中，其匹配了一个关键词 <code>@include</code> 来调用声明好的混合宏</p>
+<p>例如在你的样式中定义了一个圆角的混合宏 <code>border-radius</code>:</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> border-radius&#123;</span><br><span class="line">    -webkit-<span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在一个按钮中要调用定义好的混合宏 <code>border-radius</code>，可以这样使用：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">button</span> &#123;</span><br><span class="line">    @<span class="keyword">include</span> border-radius;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个时候编译出来的 <code>CSS</code>:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">button</span> &#123;</span><br><span class="line">  <span class="attribute">-webkit-border-radius</span>: <span class="number">3px</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="混合宏的参数"><a href="#混合宏的参数" class="headerlink" title="混合宏的参数"></a>混合宏的参数</h2><p><code>Sass</code> 的混合宏有一个强大的功能，可以传参，那么在 <code>Sass</code> 中传参主要有以下几种情形：</p>
+<h3 id="传一个不带值的参数"><a href="#传一个不带值的参数" class="headerlink" title="传一个不带值的参数"></a>传一个不带值的参数</h3><p>在混合宏中，可以传一个不带任何值的参数，比如：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> border-radius(<span class="variable">$radius</span>)&#123;</span><br><span class="line">  -webkit-<span class="attribute">border-radius</span>: <span class="variable">$radius</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="variable">$radius</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在混合宏 <code>border-radius</code> 中定义了一个不带任何值的参数 <code>$radius</code> </p>
+<p>在调用的时候可以给这个混合宏传一个参数值：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  @<span class="keyword">include</span> border-radius(<span class="number">3px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里表示给混合宏传递了一个 <code>border-radius</code> 的值为 <code>3px</code></p>
+<p>编译出来的 <code>CSS</code>:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">-webkit-border-radius</span>: <span class="number">3px</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="传一个带值的参数"><a href="#传一个带值的参数" class="headerlink" title="传一个带值的参数"></a>传一个带值的参数</h3><p>在 <code>Sass</code> 的混合宏中，还可以给混合宏的参数传一个默认值，例如：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> border-radius(<span class="variable">$radius</span>: 3px)&#123;</span><br><span class="line">  -webkit-<span class="attribute">border-radius</span>: <span class="variable">$radius</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="variable">$radius</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在混合宏 <code>border-radius</code> 传了一个参数 <code>$radius</code></p>
+<p>而且给这个参数赋予了一个默认值 <code>3px</code></p>
+<p>在调用类似这样的混合宏时，会多有一个机会</p>
+<p>假设你的页面中的圆角很多地方都是 <code>3px</code> 的圆角</p>
+<p>那么这个时候只需要调用默认的混合宏 <code>border-radius</code>:</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.btn</span> &#123;</span><br><span class="line">  @<span class="keyword">include</span> border-radius;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译出来的 <code>CSS</code>:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.btn</span> &#123;</span><br><span class="line">  <span class="attribute">-webkit-border-radius</span>: <span class="number">3px</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但有的时候，页面中有些元素的圆角值不一样，那么可以随机给混合宏传值，如：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  @<span class="keyword">include</span> border-radius(<span class="number">50%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译出来的 <code>CSS</code>:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">-webkit-border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="传多个参数"><a href="#传多个参数" class="headerlink" title="传多个参数"></a>传多个参数</h3><p><code>Sass</code> 混合宏除了能传一个参数之外，还可以传多个参数，如：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> center(<span class="variable">$width</span>,<span class="variable">$height</span>)&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="variable">$width</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="variable">$height</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: -(<span class="variable">$height</span>) / <span class="number">2</span>;</span><br><span class="line">  <span class="attribute">margin-left</span>: -(<span class="variable">$width</span>) / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在混合宏 <code>center</code> 就传了多个参数。在实际调用和其调用其他混合宏是一样的：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box-center</span> &#123;</span><br><span class="line">  @<span class="keyword">include</span> center(<span class="number">500px</span>,<span class="number">300px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译出来 <code>CSS</code>:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box-center</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: -<span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">margin-left</span>: -<span class="number">250px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>有一个特别的参数 <code>...</code> 当混合宏传的参数过多之时，</p>
+<p>可以使用参数来替代，如：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> box-shadow(<span class="variable">$shadows</span>...)&#123;</span><br><span class="line">  @<span class="keyword">if</span> length(<span class="variable">$shadows</span>) &gt;= 1 &#123;</span><br><span class="line">    -webkit-<span class="attribute">box-shadow</span>: <span class="variable">$shadows</span>;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="variable">$shadows</span>;</span><br><span class="line">  &#125; @<span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable">$shadows</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">2px</span> rgba(<span class="number">#000</span>, .<span class="number">25</span>);</span><br><span class="line">    -webkit-<span class="attribute">box-shadow</span>: <span class="variable">$shadow</span>;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="variable">$shadow</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在实际调用中：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  @<span class="keyword">include</span> box-shadow(<span class="number">0</span> 0 1px rgba(<span class="number">#000</span>, .5),<span class="number">0</span> 0 2px rgba(<span class="number">#000</span>, .2));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译出来的 <code>CSS</code>:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">-webkit-box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">1px</span> <span class="built_in">rgba</span>(0, 0, 0, 0.5), <span class="number">0</span> <span class="number">0</span> <span class="number">2px</span> <span class="built_in">rgba</span>(0, 0, 0, 0.2);</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">1px</span> <span class="built_in">rgba</span>(0, 0, 0, 0.5), <span class="number">0</span> <span class="number">0</span> <span class="number">2px</span> <span class="built_in">rgba</span>(0, 0, 0, 0.2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="混合宏的不足"><a href="#混合宏的不足" class="headerlink" title="混合宏的不足"></a>混合宏的不足</h2><p>混合宏在实际编码中给我们带来很多方便之处</p>
+<p>特别是对于复用重复代码块</p>
+<p>但其最大的不足之处是会生成冗余的代码块</p>
+<p>比如在不同的地方调用一个相同的混合宏时，如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> border-radius&#123;</span><br><span class="line">  <span class="selector-tag">-webkit-border-radius</span>: 3<span class="selector-tag">px</span>;</span><br><span class="line">  <span class="selector-tag">border-radius</span>: 3<span class="selector-tag">px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  @include border-radius;</span><br><span class="line">  <span class="selector-tag">margin-bottom</span>: 5<span class="selector-tag">px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.btn</span> &#123;</span><br><span class="line">  @include border-radius;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>示例在 <code>.box</code> 和 <code>.btn</code> 中都调用了定义好的 <code>border-radius</code> 混合宏</p>
+<p>先来看编译出来的 <code>CSS</code>：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">-webkit-border-radius</span>: <span class="number">3px</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.btn</span> &#123;</span><br><span class="line">  <span class="attribute">-webkit-border-radius</span>: <span class="number">3px</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上例明显可以看出</p>
+<p><code>Sass</code> 在调用相同的混合宏时</p>
+<p>并不能智能的将相同的样式代码块合并在一起</p>
+<p>这也是 <code>Sass</code> 的混合宏最不足之处</p>
+
+            
+
+            
+                <div class="page-reward">
+                    <a href="javascript:;" class="page-reward-btn tooltip-top">
+                        <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赞赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>你的鼓励·我的动力<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                      
+                      
+                          <div class="reward-box-item">
+                      <img class="reward-img" src="/img/appreciate.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                      
+                  </div>
+                </span>
+              </span>
+            </span>
+                        </div>
+                    </a>
+                </div>
+            
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/11/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2019-11-11T04:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-11</time>
-</a>
+        <div class="article-info article-info-index">
+        <!-- 位于此处的文章标签已移动到上方 -->
+            
+
+            
+                
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/11/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6/">自定义样式文件</a>
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
   </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/10/%E6%90%AD%E5%BB%BA%20Hexo%20%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2019-11-09T16:04:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/10/%E6%90%AD%E5%BB%BA%20Hexo%20%E5%8D%9A%E5%AE%A2/">搭建 Hexo 博客</a>
-    </h1>
-  
+</div>
 
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="page-modal wx-share js-wx-box">
+  <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+  <p>扫一扫，分享到微信</p>
+  <div class="wx-qrcode">
+    <img src="http://qr.liantu.com/api.php?text=http://yoursite.com/2020/07/10/Sass%20%E6%B7%B7%E5%90%88%E5%AE%8F/" alt="微信分享二维码">
   </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+            
+            <div class="clearfix"></div>
+        </div>
+    </div>
 </article>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/10/Sass%20%E6%89%A9%E5%B1%95%E7%BB%A7%E6%89%BF/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Sass 扩展/继承
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2020/07/10/Sass%20%E5%B5%8C%E5%A5%97/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Sass 嵌套</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item"></span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#声明混合宏"><span class="toc-number">1.</span> <span class="toc-text">声明混合宏</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#不带参数混合宏"><span class="toc-number">1.1.</span> <span class="toc-text">不带参数混合宏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#带参数混合宏"><span class="toc-number">1.2.</span> <span class="toc-text">带参数混合宏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#复杂的混合宏"><span class="toc-number">1.3.</span> <span class="toc-text">复杂的混合宏</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调用混合宏"><span class="toc-number">2.</span> <span class="toc-text">调用混合宏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#混合宏的参数"><span class="toc-number">3.</span> <span class="toc-text">混合宏的参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#传一个不带值的参数"><span class="toc-number">3.1.</span> <span class="toc-text">传一个不带值的参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#传一个带值的参数"><span class="toc-number">3.2.</span> <span class="toc-text">传一个带值的参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#传多个参数"><span class="toc-number">3.3.</span> <span class="toc-text">传多个参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#混合宏的不足"><span class="toc-number">4.</span> <span class="toc-text">混合宏的不足</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+    <!-- 目录内容 -->
+    
+        <p id="show-toc-btn" class="show-toc-btn" onmouseenter="showToc();" onmouseleave="showBtn();" style="display:block">
+            <!-- <span class="btn-bg"></span> -->
+            <span class="btn-text">文章目录</span>
+        </p>
+        <div id="toc-article1" class="toc-article1" onmouseleave="showBtn();" onmouseenter="showToc();">
+            <!--<span id="toc-close" class="toc-close" title="隐藏导航">×</span>-->
+            <strong class="toc-title">文章目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#声明混合宏"><span class="toc-number">1.</span> <span class="toc-text">声明混合宏</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#不带参数混合宏"><span class="toc-number">1.1.</span> <span class="toc-text">不带参数混合宏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#带参数混合宏"><span class="toc-number">1.2.</span> <span class="toc-text">带参数混合宏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#复杂的混合宏"><span class="toc-number">1.3.</span> <span class="toc-text">复杂的混合宏</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调用混合宏"><span class="toc-number">2.</span> <span class="toc-text">调用混合宏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#混合宏的参数"><span class="toc-number">3.</span> <span class="toc-text">混合宏的参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#传一个不带值的参数"><span class="toc-number">3.1.</span> <span class="toc-text">传一个不带值的参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#传一个带值的参数"><span class="toc-number">3.2.</span> <span class="toc-text">传一个带值的参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#传多个参数"><span class="toc-number">3.3.</span> <span class="toc-text">传多个参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#混合宏的不足"><span class="toc-number">4.</span> <span class="toc-text">混合宏的不足</span></a></li></ol>
+        </div>
+        <script type="text/javascript">
+		    function showToc(){
+		    	var toc_article = document.getElementById("toc-article1")
+		    	var show_toc_btn = document.getElementById("show-toc-btn")
+		    	// toc_article.setAttribute("style","display:block")
+		    	// show_toc_btn.setAttribute("style","display:none")
+		    	show_toc_btn.style.opacity = "0"
+		    	// toc_article.style.marginRight = "0"
+		    }
+		    function showBtn(){
+		    	var toc_article = document.getElementById("toc-article1")
+		    	var show_toc_btn = document.getElementById("show-toc-btn")
+		    	// toc_article.setAttribute("style","display:none");
+		    	// show_toc_btn.setAttribute("style","display:block");
+		    	show_toc_btn.style.opacity = "1"
+		    	// toc_article.style.marginRight = "-350px"
+		    }
+        </script>
+    
+    <!-- 目录内容结束 -->
+</aside>
+
+
+
+    <div class="comment-area-customize">
+        <!-- 来必力评论系统 -->
+        
+            <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NzI1OS8yMzc1OQ">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+        
+    </div>
+
+    
+
+    
+
+    
+
+    
 
     
 
@@ -325,9 +580,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: false,

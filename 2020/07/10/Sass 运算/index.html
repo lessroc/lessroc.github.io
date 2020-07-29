@@ -6,16 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: hexo | lessroc的博客</title>
+  <title>Sass 运算 | lessroc的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="狂热的初学者">
-<meta name="keywords" content="lessroc">
-<meta property="og:type" content="website">
-<meta property="og:title" content="lessroc的博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;hexo&#x2F;index.html">
+  <meta name="description" content="程序中的运算是常见的一件事情 但在 CSS 中能做运算的，到目前为止仅有 calc() 函数可行 但在 Sass 中，运算只是其基本特性之一，在 Sass 中可以做各种数学计算">
+<meta name="keywords" content="Sass">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sass 运算">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;07&#x2F;10&#x2F;Sass%20%E8%BF%90%E7%AE%97&#x2F;index.html">
 <meta property="og:site_name" content="lessroc的博客">
-<meta property="og:description" content="狂热的初学者">
+<meta property="og:description" content="程序中的运算是常见的一件事情 但在 CSS 中能做运算的，到目前为止仅有 calc() 函数可行 但在 Sass 中，运算只是其基本特性之一，在 Sass 中可以做各种数学计算">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2020-07-14T11:05:01.690Z">
 <meta name="twitter:card" content="summary">
   
   
@@ -182,98 +183,390 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
+            <article id="post-Sass 运算" class="article article-type-post " itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                <!-- 文章标题与文章日期 -->
+                
+  
+    <h1 class="article-title" itemprop="name">
+      Sass 运算
+    </h1>
+  
+
+
+                
+                    <a href="/2020/07/10/Sass%20%E8%BF%90%E7%AE%97/" class="archive-article-date">
+  	<time datetime="2020-07-10T10:11:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
+</a>
+                
+                <!-- 把下方的文章标签代码连同样式一并上移到文章标题的下方 -->
+                <div class="article-info-customize article-info-index">
+                    
+                    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sass</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                    
+
+                </div>
+            </header>
+        
+
+        <div class="article-entry" itemprop="articleBody">
             
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
+                <p>程序中的运算是常见的一件事情</p>
+<p>但在 <code>CSS</code> 中能做运算的，到目前为止仅有 <code>calc()</code> 函数可行</p>
+<p>但在 <code>Sass</code> 中，运算只是其基本特性之一，在 <code>Sass</code> 中可以做各种数学计算<a id="more"></a></p>
+<p>以下代码块中均采用 <code>SCSS</code> 语法格式</p>
+<h2 id="加法运算"><a href="#加法运算" class="headerlink" title="加法运算"></a>加法运算</h2><p>加法运算是 <code>Sass</code> 中运算中的一种，在变量或属性中都可以做加法运算。如：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">20px</span> + <span class="number">8in</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译出来的 <code>CSS</code>:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">788px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但对于携带不同类型的单位时，在 <code>Sass</code> 中计算会报错，如下例所示：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">20px</span> + <span class="number">1em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译的时候，编译器会报错：<code>Incompatible units: &#39;em&#39; and &#39;px&#39;</code></p>
+<h2 id="减法运算"><a href="#减法运算" class="headerlink" title="减法运算"></a>减法运算</h2><p><code>Sass</code> 的减法运算和加法运算类似，如：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$full-width</span>: <span class="number">960px</span>;</span><br><span class="line"><span class="variable">$sidebar-width</span>: <span class="number">200px</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.content</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="variable">$full-width</span> -  <span class="variable">$sidebar-width</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译出来的 <code>CSS</code> 如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.content</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">760px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>同样的，运算时碰到不同类型的单位时，编译也会报错，如：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$full-width</span>: <span class="number">960px</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.content</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="variable">$full-width</span> -  <span class="number">1em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译的时候，编译器会报错：<code>Incompatible units: &#39;em&#39; and &#39;px&#39;</code></p>
+<h2 id="乘法运算"><a href="#乘法运算" class="headerlink" title="乘法运算"></a>乘法运算</h2><p><code>Sass</code> 中的乘法运算和前面介绍的加法与减法运算还略有不同</p>
+<p>虽然他也能够支持多种单位（比如 <code>em</code>, <code>px</code>, <code>%</code>），但当一个单位同时声明两个值时会有问题</p>
+<p>比如下面的示例：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">10px</span> * <span class="number">2px</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译的时候报 <code>20px * px isn&#39;t a valid CSS value</code> 错误信息</p>
+<p>如果进行乘法运算时，两个值单位相同时，只需要为一个数值提供单位即可</p>
+<p>上面的示例可以修改成：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">10px</span> * <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译出来的 <code>CSS</code>:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>Sass</code> 的乘法运算和加法、减法运算一样，</p>
+<p>在运算中有不同类型的单位时，也将会报错。如下面的示例：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">20px</span> * <span class="number">2em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译时报 <code>40em * px isn&#39;t a valid CSS value</code> 错误信息。</p>
+<h2 id="除法运算"><a href="#除法运算" class="headerlink" title="除法运算"></a>除法运算</h2><p><code>Sass</code> 的乘法运算规则也适用于除法运算，不过除法运算还有一个特殊之处</p>
+<p>众所周知 <code>/</code> 符号在 <code>CSS</code> 中已做为一种符号使用</p>
+<p>因此在 <code>Sass</code> 中做除法运算时，直接使用 <code>/</code> 符号做为除号时，将不会生效</p>
+<p>编译时既得不到我们需要的效果，也不会报错。一起先来看一个简单的示例：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span> / <span class="number">2</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译出来的 <code>CSS</code> 如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span> / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样的结果对于大家来说没有任何意义</p>
+<p>要修正这个问题，只需要给运算的外面添加一个小括号<code>( )</code>即可：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: (<span class="number">100px</span> / <span class="number">2</span>);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译出来的 <code>CSS</code> 如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>除了上面情况带有小括号，“/”符号会当作除法运算符之外，如果“/”符号在已有的数学表达式中时，也会被认作除法符号。如下面示例：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span> / <span class="number">2</span> + <span class="number">2in</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译出来的 <code>CSS</code>：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">242px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>另外，在 <code>Sass</code> 除法运算中，<strong>当用变量进行除法运算时</strong>， <code>/</code> 符号也会自动被识别成除法，</p>
+<p>如下例所示：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$width</span>: <span class="number">1000px</span>;</span><br><span class="line"><span class="variable">$nums</span>: <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="variable">$width</span> / <span class="number">10</span>;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.list</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="variable">$width</span> / <span class="variable">$nums</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译出来的 <code>CSS</code>:</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.list</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>综合上述， <code>/</code> 符号被当作除法运算符时有以下几种情况：</p>
+<ul>
+<li>如果数值或它的任意部分是存储在一个变量中或是函数的返回值</li>
+<li>如果数值被圆括号包围</li>
+<li>如果数值是另一个数学表达式的一部分。</li>
+</ul>
+<p>如下所示：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SCSS</span></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">font</span>: <span class="number">10px</span> / <span class="number">8px</span>;             <span class="comment">// 纯 CSS，不是除法运算</span></span><br><span class="line">  <span class="variable">$width</span>: <span class="number">1000px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="variable">$width</span> / <span class="number">2</span>;            <span class="comment">// 使用了变量，是除法运算</span></span><br><span class="line">  <span class="attribute">width</span>: round(<span class="number">1.5</span>) / <span class="number">2</span>;        <span class="comment">// 使用了函数，是除法运算</span></span><br><span class="line">  <span class="attribute">height</span>: (<span class="number">500px</span>/<span class="number">2</span>);            <span class="comment">// 使用了圆括号，是除法运算</span></span><br><span class="line">  <span class="attribute">margin-left</span>: <span class="number">5px</span> + <span class="number">8px</span> / <span class="number">2px</span>; <span class="comment">// 使用了加(+)号，是除法运算</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译出来的 <code>CSS</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">font</span>: <span class="number">10px</span> / <span class="number">8px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">250px</span>;</span><br><span class="line">  <span class="attribute">margin-left</span>: <span class="number">9px</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>Sass</code> 的除法运算还有一个情况</p>
+<p>我们先回忆一下，在乘法运算时，如果两个值带有相同单位时，做乘法运算时，</p>
+<p>出来的结果并不是我们需要的结果。但在除法运算时，如果两个值带有相同的单位值时，</p>
+<p>除法运算之后会得到一个不带单位的数值。如下所示：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: (<span class="number">100px</span> / <span class="number">10px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译出来的 <code>CSS</code> 如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">10</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="变量计算"><a href="#变量计算" class="headerlink" title="变量计算"></a>变量计算</h2><p>在 <code>Sass</code> 中除了可以使用数值进行运算之外</p>
+<p>还可以使用变量进行计算，其实在前面章节的示例中也或多或少的向大家展示了</p>
+<p>在 <code>Sass</code> 中使用变量进行计算，这使得 <code>Sass</code> 的数学运算功能变得更加实用</p>
+<p>一起来看一个简单的示例：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$content-width</span>: <span class="number">720px</span>;</span><br><span class="line"><span class="variable">$sidebar-width</span>: <span class="number">220px</span>;</span><br><span class="line"><span class="variable">$gutter</span>: <span class="number">20px</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="variable">$content-width</span> + <span class="variable">$sidebar-width</span> + <span class="variable">$gutter</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译出来的 <code>CSS</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">960px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="数字运算"><a href="#数字运算" class="headerlink" title="数字运算"></a>数字运算</h2><p>在 <code>Sass</code> 运算中数字运算是较为常见的</p>
+<p>数字运算包括前面介绍的：加法、减法、乘法和除法等运算</p>
+<p>而且还可以通过括号来修改他们的运算先后顺序</p>
+<p>和我们数学运算是一样的，一起来看个示例:</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: ((<span class="number">220px</span> + <span class="number">720px</span>) - <span class="number">11</span> * <span class="number">20</span> ) / <span class="number">12</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译出来的 <code>CSS</code>：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">60px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面这个简单示例是一个典型的计算 <code>Grid</code> 单列列宽的运算。</p>
+<h2 id="颜色运算"><a href="#颜色运算" class="headerlink" title="颜色运算"></a>颜色运算</h2><p>所有算数运算都支持颜色值，并且是分段运算的。也就是说，<strong>红</strong>、<strong>绿</strong>和<strong>蓝</strong>各颜色分段单独进行运算。如：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#010203</span> + <span class="number">#040506</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>计算公式为 <code>01 + 04 = 05</code>、<code>02 + 05 = 07</code> 和 <code>03 + 06 = 09</code>， 并且被合成为：</p>
+<p>如此编译出来的 <code>CSS</code> 为：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#050709</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>算数运算也能将数字和颜色值 一起运算，同样也是分段运算的。如：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#010203</span> * <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>计算公式为 <code>01 * 2 = 02</code>、<code>02 * 2 = 04</code> 和 <code>03 * 2 = 06</code>， 并且被合成为：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#020406</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="字符运算"><a href="#字符运算" class="headerlink" title="字符运算"></a>字符运算</h2><p>在 <code>Sass</code> 中可以通过加法符号 <code>+</code> 来对字符串进行连接。例如：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$content</span>: <span class="string">"Hello"</span> + <span class="string">""</span> + <span class="string">"Sass!"</span>;</span><br><span class="line"><span class="selector-class">.box</span>:before &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">" #&#123;$content&#125; "</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译出来的 <code>CSS</code>：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">" Hello Sass! "</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>除了在变量中做字符连接运算之外，还可以直接通过 <code>+</code>，把字符连接在一起：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">cursor</span>: e + -resize;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译出来的 <code>CSS</code>:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">cursor</span>: e-resize;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意:</strong></p>
+<p>如果有引号的字符串被添加了一个没有引号的字符串</p>
+<p>(<strong>有带引号</strong>的字符串在 <code>+</code> 符号<strong>左侧</strong>)，结果会是一个<strong>有引号的字符串</strong></p>
+<p>同样的，如果一个没有引号的字符串被添加了一个有引号的字符串</p>
+<p>(<strong>没带引号</strong>的字符串在 <code>+</code> 符号<strong>左侧</strong>)，结果将是一个<strong>没有引号的字符串</strong></p>
+<p>例如：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span>:before &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">"Foo "</span> + Bar;</span><br><span class="line">  <span class="attribute">font-family</span>: sans- + <span class="string">"serif"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译出来的 <code>CSS</code>：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">"Foo Bar"</span>;</span><br><span class="line">  <span class="attribute">font-family</span>: sans-serif; &#125;</span><br></pre></td></tr></table></figure>
+            
+
+            
+                <div class="page-reward">
+                    <a href="javascript:;" class="page-reward-btn tooltip-top">
+                        <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赞赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>你的鼓励·我的动力<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                      
+                      
+                          <div class="reward-box-item">
+                      <img class="reward-img" src="/img/appreciate.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                      
+                  </div>
+                </span>
+              </span>
+            </span>
+                        </div>
+                    </a>
+                </div>
+            
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/11/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2019-11-11T04:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-11</time>
-</a>
+        <div class="article-info article-info-index">
+        <!-- 位于此处的文章标签已移动到上方 -->
+            
+
+            
+                
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/11/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6/">自定义样式文件</a>
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
   </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/10/%E6%90%AD%E5%BB%BA%20Hexo%20%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2019-11-09T16:04:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/10/%E6%90%AD%E5%BB%BA%20Hexo%20%E5%8D%9A%E5%AE%A2/">搭建 Hexo 博客</a>
-    </h1>
-  
+</div>
 
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="page-modal wx-share js-wx-box">
+  <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+  <p>扫一扫，分享到微信</p>
+  <div class="wx-qrcode">
+    <img src="http://qr.liantu.com/api.php?text=http://yoursite.com/2020/07/10/Sass%20%E8%BF%90%E7%AE%97/" alt="微信分享二维码">
   </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+            
+            <div class="clearfix"></div>
+        </div>
+    </div>
 </article>
+
+    
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/07/10/Sass%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Sass 数据类型</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item"></span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#加法运算"><span class="toc-number">1.</span> <span class="toc-text">加法运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#减法运算"><span class="toc-number">2.</span> <span class="toc-text">减法运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#乘法运算"><span class="toc-number">3.</span> <span class="toc-text">乘法运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#除法运算"><span class="toc-number">4.</span> <span class="toc-text">除法运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量计算"><span class="toc-number">5.</span> <span class="toc-text">变量计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数字运算"><span class="toc-number">6.</span> <span class="toc-text">数字运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#颜色运算"><span class="toc-number">7.</span> <span class="toc-text">颜色运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符运算"><span class="toc-number">8.</span> <span class="toc-text">字符运算</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+    <!-- 目录内容 -->
+    
+        <p id="show-toc-btn" class="show-toc-btn" onmouseenter="showToc();" onmouseleave="showBtn();" style="display:block">
+            <!-- <span class="btn-bg"></span> -->
+            <span class="btn-text">文章目录</span>
+        </p>
+        <div id="toc-article1" class="toc-article1" onmouseleave="showBtn();" onmouseenter="showToc();">
+            <!--<span id="toc-close" class="toc-close" title="隐藏导航">×</span>-->
+            <strong class="toc-title">文章目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#加法运算"><span class="toc-number">1.</span> <span class="toc-text">加法运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#减法运算"><span class="toc-number">2.</span> <span class="toc-text">减法运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#乘法运算"><span class="toc-number">3.</span> <span class="toc-text">乘法运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#除法运算"><span class="toc-number">4.</span> <span class="toc-text">除法运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量计算"><span class="toc-number">5.</span> <span class="toc-text">变量计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数字运算"><span class="toc-number">6.</span> <span class="toc-text">数字运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#颜色运算"><span class="toc-number">7.</span> <span class="toc-text">颜色运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符运算"><span class="toc-number">8.</span> <span class="toc-text">字符运算</span></a></li></ol>
+        </div>
+        <script type="text/javascript">
+		    function showToc(){
+		    	var toc_article = document.getElementById("toc-article1")
+		    	var show_toc_btn = document.getElementById("show-toc-btn")
+		    	// toc_article.setAttribute("style","display:block")
+		    	// show_toc_btn.setAttribute("style","display:none")
+		    	show_toc_btn.style.opacity = "0"
+		    	// toc_article.style.marginRight = "0"
+		    }
+		    function showBtn(){
+		    	var toc_article = document.getElementById("toc-article1")
+		    	var show_toc_btn = document.getElementById("show-toc-btn")
+		    	// toc_article.setAttribute("style","display:none");
+		    	// show_toc_btn.setAttribute("style","display:block");
+		    	show_toc_btn.style.opacity = "1"
+		    	// toc_article.style.marginRight = "-350px"
+		    }
+        </script>
+    
+    <!-- 目录内容结束 -->
+</aside>
+
+
+
+    <div class="comment-area-customize">
+        <!-- 来必力评论系统 -->
+        
+            <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NzI1OS8yMzc1OQ">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+        
+    </div>
+
+    
+
+    
+
+    
+
+    
 
     
 
@@ -325,9 +618,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: false,

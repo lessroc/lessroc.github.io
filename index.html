@@ -185,7 +185,7 @@
             
   
     
-      <article id="post-搭建 Hexo 博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+      <article id="post-Sass 运算" class="article article-type-post  article-index" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
@@ -193,14 +193,14 @@
                 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/10/%E6%90%AD%E5%BB%BA%20Hexo%20%E5%8D%9A%E5%AE%A2/">搭建 Hexo 博客</a>
+      <a class="article-title" href="/2020/07/10/Sass%20%E8%BF%90%E7%AE%97/">Sass 运算</a>
     </h1>
   
 
 
                 
-                    <a href="/2019/11/10/%E6%90%AD%E5%BB%BA%20Hexo%20%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2019-11-09T16:04:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-10</time>
+                    <a href="/2020/07/10/Sass%20%E8%BF%90%E7%AE%97/" class="archive-article-date">
+  	<time datetime="2020-07-10T10:11:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
 </a>
                 
                 <!-- 把下方的文章标签代码连同样式一并上移到文章标题的下方 -->
@@ -212,7 +212,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sass</a>
         		</li>
       		
 		</ul>
@@ -226,8 +226,9 @@
 
         <div class="article-entry" itemprop="articleBody">
             
-                <p>本教程基于Windows：</p>
-<p><img src="https://s1.ax1x.com/2020/07/03/NO5zhd.png" alt="Windows规格.png"></p>
+                <p>程序中的运算是常见的一件事情</p>
+<p>但在 <code>CSS</code> 中能做运算的，到目前为止仅有 <code>calc()</code> 函数可行</p>
+<p>但在 <code>Sass</code> 中，运算只是其基本特性之一，在 <code>Sass</code> 中可以做各种数学计算</p>
                 
             
 
@@ -237,7 +238,7 @@
         <!-- 位于此处的文章标签已移动到上方 -->
             
                 <p class="article-more-link">
-                    <a class="article-more-a" href="/2019/11/10/%E6%90%AD%E5%BB%BA%20Hexo%20%E5%8D%9A%E5%AE%A2/">展开全文 >></a>
+                    <a class="article-more-a" href="/2020/07/10/Sass%20%E8%BF%90%E7%AE%97/">展开全文 >></a>
                 </p>
             
 
@@ -271,6 +272,834 @@
 
     
   
+    
+      <article id="post-Sass 数据类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                <!-- 文章标题与文章日期 -->
+                
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/10/Sass%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">Sass 数据类型</a>
+    </h1>
+  
+
+
+                
+                    <a href="/2020/07/10/Sass%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="archive-article-date">
+  	<time datetime="2020-07-10T09:06:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
+</a>
+                
+                <!-- 把下方的文章标签代码连同样式一并上移到文章标题的下方 -->
+                <div class="article-info-customize article-info-index">
+                    
+                    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sass</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                    
+
+                </div>
+            </header>
+        
+
+        <div class="article-entry" itemprop="articleBody">
+            
+                <p><code>Sass</code> 和 <code>JavaScript</code> 语言类似，也具有自己的数据类型</p>
+<p>在 <code>Sass</code> 中包含以下几种数据类型：</p>
+<ul>
+<li><strong>数字</strong>：如，<code>1</code>、<code>2</code>、<code>13</code>、<code>10px</code></li>
+<li><strong>字符串</strong>：有引号字符串或无引号字符串，如，<code>&quot;foo&quot;</code>、<code>&#39;bar&#39;</code>、<code>baz</code></li>
+<li><strong>颜色</strong>：如，<code>blue</code>、<code>#04a3f9</code>、<code>rgba(255,0,0,0.5)</code></li>
+<li><strong>布尔型</strong>：如，<code>true</code>、<code>false</code></li>
+<li><strong>空值</strong>：如，<code>null</code></li>
+<li><strong>值列表</strong>：用空格或者逗号分开，如，<code>1.5em 1em 0 2em</code>、<code>Helvetica, Arial, sans-serif</code></li>
+</ul>
+<p><code>SassScript</code> 也支持其他 <code>CSS</code> 属性值（property value）</p>
+<p>比如 <code>Unicode</code> 范围，或 <code>!important</code> 声明</p>
+<p>然而，<code>Sass</code> 不会特殊对待这些属性值一律视为无引号字符串 (unquoted strings)</p>
+
+            
+
+            
+        </div>
+        <div class="article-info article-info-index">
+        <!-- 位于此处的文章标签已移动到上方 -->
+            
+                <p class="article-more-link">
+                    <a class="article-more-a" href="/2020/07/10/Sass%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">展开全文 >></a>
+                </p>
+            
+
+            
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+    <!-- 目录内容 -->
+    
+    <!-- 目录内容结束 -->
+</aside>
+
+
+
+
+    
+  
+    
+      <article id="post-Sass 插值" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                <!-- 文章标题与文章日期 -->
+                
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/10/Sass%20%E6%8F%92%E5%80%BC/">Sass 插值</a>
+    </h1>
+  
+
+
+                
+                    <a href="/2020/07/10/Sass%20%E6%8F%92%E5%80%BC/" class="archive-article-date">
+  	<time datetime="2020-07-10T08:25:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
+</a>
+                
+                <!-- 把下方的文章标签代码连同样式一并上移到文章标题的下方 -->
+                <div class="article-info-customize article-info-index">
+                    
+                    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sass</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                    
+
+                </div>
+            </header>
+        
+
+        <div class="article-entry" itemprop="articleBody">
+            
+                <p>使用 <code>CSS</code> 预处理器语言的一个主要原因是想使用 <code>Sass</code> 获得一个更好的结构体系</p>
+<p>比如说你想写更干净的、高效的和面向对象的 <code>CSS</code></p>
+<p><code>Sass</code> 中的插值(Interpolation)就是重要的一部分</p>
+                
+            
+
+            
+        </div>
+        <div class="article-info article-info-index">
+        <!-- 位于此处的文章标签已移动到上方 -->
+            
+                <p class="article-more-link">
+                    <a class="article-more-a" href="/2020/07/10/Sass%20%E6%8F%92%E5%80%BC/">展开全文 >></a>
+                </p>
+            
+
+            
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+    <!-- 目录内容 -->
+    
+    <!-- 目录内容结束 -->
+</aside>
+
+
+
+
+    
+  
+    
+      <article id="post-Sass 混合宏 VS 继承 VS 占位符" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                <!-- 文章标题与文章日期 -->
+                
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/10/Sass%20%E6%B7%B7%E5%90%88%E5%AE%8F%20VS%20%E7%BB%A7%E6%89%BF%20VS%20%E5%8D%A0%E4%BD%8D%E7%AC%A6/">Sass 混合宏 VS 继承 VS 占位符</a>
+    </h1>
+  
+
+
+                
+                    <a href="/2020/07/10/Sass%20%E6%B7%B7%E5%90%88%E5%AE%8F%20VS%20%E7%BB%A7%E6%89%BF%20VS%20%E5%8D%A0%E4%BD%8D%E7%AC%A6/" class="archive-article-date">
+  	<time datetime="2020-07-10T07:48:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
+</a>
+                
+                <!-- 把下方的文章标签代码连同样式一并上移到文章标题的下方 -->
+                <div class="article-info-customize article-info-index">
+                    
+                    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sass</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                    
+
+                </div>
+            </header>
+        
+
+        <div class="article-entry" itemprop="articleBody">
+            
+                <p>初学者都常常纠结于这个问题</p>
+<p><strong>什么时候用混合宏，什么时候用继承，什么时候使用占位符？</strong></p>
+<p>其实他们各有各的优点与缺点，先来看看他们使用效果：</p>
+                
+            
+
+            
+        </div>
+        <div class="article-info article-info-index">
+        <!-- 位于此处的文章标签已移动到上方 -->
+            
+                <p class="article-more-link">
+                    <a class="article-more-a" href="/2020/07/10/Sass%20%E6%B7%B7%E5%90%88%E5%AE%8F%20VS%20%E7%BB%A7%E6%89%BF%20VS%20%E5%8D%A0%E4%BD%8D%E7%AC%A6/">展开全文 >></a>
+                </p>
+            
+
+            
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+    <!-- 目录内容 -->
+    
+    <!-- 目录内容结束 -->
+</aside>
+
+
+
+
+    
+  
+    
+      <article id="post-Sass 占位符" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                <!-- 文章标题与文章日期 -->
+                
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/10/Sass%20%E5%8D%A0%E4%BD%8D%E7%AC%A6/">Sass 占位符 %(placeholder)</a>
+    </h1>
+  
+
+
+                
+                    <a href="/2020/07/10/Sass%20%E5%8D%A0%E4%BD%8D%E7%AC%A6/" class="archive-article-date">
+  	<time datetime="2020-07-10T07:35:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
+</a>
+                
+                <!-- 把下方的文章标签代码连同样式一并上移到文章标题的下方 -->
+                <div class="article-info-customize article-info-index">
+                    
+                    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sass</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                    
+
+                </div>
+            </header>
+        
+
+        <div class="article-entry" itemprop="articleBody">
+            
+                <p><code>Sass</code> 中的占位符 <code>%placeholder</code> 是一个很强大，很实用的功能</p>
+<p>他可以取代以前 <code>CSS</code> 中的基类造成的代码冗余的情形</p>
+<p>因为 <code>%placeholder</code> 声明的代码，如果不被 <code>@extend</code> 调用的话，不会产生任何代码</p>
+<p>来看一个演示：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">%mt5 &#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br><span class="line">%pt5&#123;</span><br><span class="line">  <span class="attribute">padding-top</span>: <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码没有被 <code>@extend</code> 调用，他并没有产生任何代码块</p>
+<p>只是静静的躺在你的某个 <code>SCSS</code> 文件中，只有通过 <code>@extend</code> 调用才会产生代码：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">%mt5 &#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br><span class="line">%pt5&#123;</span><br><span class="line">  <span class="attribute">padding-top</span>: <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.btn</span> &#123;</span><br><span class="line">  @<span class="keyword">extend</span> %mt5;</span><br><span class="line">  @<span class="keyword">extend</span> %pt5;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.block</span> &#123;</span><br><span class="line">  @<span class="keyword">extend</span> %mt5;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">span</span> &#123;</span><br><span class="line">    @<span class="keyword">extend</span> %pt5;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译出来的 <code>CSS</code>：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.btn</span>, <span class="selector-class">.block</span> &#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.btn</span>, <span class="selector-class">.block</span> <span class="selector-tag">span</span> &#123;</span><br><span class="line">  <span class="attribute">padding-top</span>: <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>从编译出来的 <code>CSS</code> 代码可以看出</p>
+<p>通过 <code>@extend</code> 调用的占位符</p>
+<p>编译出来的代码会将相同的代码合并在一起</p>
+<p>这也是我们希望看到的效果，也让你的代码变得更为干净</p>
+
+            
+
+            
+        </div>
+        <div class="article-info article-info-index">
+        <!-- 位于此处的文章标签已移动到上方 -->
+            
+                <p class="article-more-link">
+                    <a class="article-more-a" href="/2020/07/10/Sass%20%E5%8D%A0%E4%BD%8D%E7%AC%A6/">展开全文 >></a>
+                </p>
+            
+
+            
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+    <!-- 目录内容 -->
+    
+    <!-- 目录内容结束 -->
+</aside>
+
+
+
+
+    
+  
+    
+      <article id="post-Sass 扩展继承" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                <!-- 文章标题与文章日期 -->
+                
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/10/Sass%20%E6%89%A9%E5%B1%95%E7%BB%A7%E6%89%BF/">Sass 扩展/继承</a>
+    </h1>
+  
+
+
+                
+                    <a href="/2020/07/10/Sass%20%E6%89%A9%E5%B1%95%E7%BB%A7%E6%89%BF/" class="archive-article-date">
+  	<time datetime="2020-07-10T06:23:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
+</a>
+                
+                <!-- 把下方的文章标签代码连同样式一并上移到文章标题的下方 -->
+                <div class="article-info-customize article-info-index">
+                    
+                    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sass</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                    
+
+                </div>
+            </header>
+        
+
+        <div class="article-entry" itemprop="articleBody">
+            
+                <p>在 <code>Sass</code> 中也具有继承一说，也是继承类中的样式代码块</p>
+<p>在 <code>Sass</code> 中是通过关键词 <code>@extend</code> 来继承已存在的类样式块，从而实现代码的继承</p>
+                
+            
+
+            
+        </div>
+        <div class="article-info article-info-index">
+        <!-- 位于此处的文章标签已移动到上方 -->
+            
+                <p class="article-more-link">
+                    <a class="article-more-a" href="/2020/07/10/Sass%20%E6%89%A9%E5%B1%95%E7%BB%A7%E6%89%BF/">展开全文 >></a>
+                </p>
+            
+
+            
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+    <!-- 目录内容 -->
+    
+    <!-- 目录内容结束 -->
+</aside>
+
+
+
+
+    
+  
+    
+      <article id="post-Sass 混合宏" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                <!-- 文章标题与文章日期 -->
+                
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/10/Sass%20%E6%B7%B7%E5%90%88%E5%AE%8F/">Sass 混合宏</a>
+    </h1>
+  
+
+
+                
+                    <a href="/2020/07/10/Sass%20%E6%B7%B7%E5%90%88%E5%AE%8F/" class="archive-article-date">
+  	<time datetime="2020-07-10T03:23:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
+</a>
+                
+                <!-- 把下方的文章标签代码连同样式一并上移到文章标题的下方 -->
+                <div class="article-info-customize article-info-index">
+                    
+                    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sass</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                    
+
+                </div>
+            </header>
+        
+
+        <div class="article-entry" itemprop="articleBody">
+            
+                <p>如果整个网站中有几处小样式类似</p>
+<p>比如颜色，字体等，在 <code>Sass</code> 可以使用变量来统一处理</p>
+<p>那么这种选择还是不错的。但当你的样式变得越来越复杂</p>
+<p>需要重复使用大段的样式时，使用变量就无法达到我们目了</p>
+<p>这个时候 <code>Sass</code> 中的<strong>混合宏</strong>就会变得非常有意义</p>
+                
+            
+
+            
+        </div>
+        <div class="article-info article-info-index">
+        <!-- 位于此处的文章标签已移动到上方 -->
+            
+                <p class="article-more-link">
+                    <a class="article-more-a" href="/2020/07/10/Sass%20%E6%B7%B7%E5%90%88%E5%AE%8F/">展开全文 >></a>
+                </p>
+            
+
+            
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+    <!-- 目录内容 -->
+    
+    <!-- 目录内容结束 -->
+</aside>
+
+
+
+
+    
+  
+    
+      <article id="post-Sass 嵌套" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                <!-- 文章标题与文章日期 -->
+                
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/10/Sass%20%E5%B5%8C%E5%A5%97/">Sass 嵌套</a>
+    </h1>
+  
+
+
+                
+                    <a href="/2020/07/10/Sass%20%E5%B5%8C%E5%A5%97/" class="archive-article-date">
+  	<time datetime="2020-07-10T02:37:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
+</a>
+                
+                <!-- 把下方的文章标签代码连同样式一并上移到文章标题的下方 -->
+                <div class="article-info-customize article-info-index">
+                    
+                    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sass</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                    
+
+                </div>
+            </header>
+        
+
+        <div class="article-entry" itemprop="articleBody">
+            
+                <p><code>Sass</code> 中还提供了选择器嵌套功能</p>
+<p>但这也并不意味着你在 <code>Sass</code> 中的嵌套是无节制的</p>
+<p>因为你嵌套的层级越深，编译出来的 <code>CSS</code> 代码的选择器层级将越深</p>
+<p>这往往是大家不愿意看到的一点。这个特性现在正被众多开发者滥用</p>
+<p>选择器嵌套为样式表的作者提供了一个通过局部选择器相互嵌套实现全局选择的方法</p>
+                
+            
+
+            
+        </div>
+        <div class="article-info article-info-index">
+        <!-- 位于此处的文章标签已移动到上方 -->
+            
+                <p class="article-more-link">
+                    <a class="article-more-a" href="/2020/07/10/Sass%20%E5%B5%8C%E5%A5%97/">展开全文 >></a>
+                </p>
+            
+
+            
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+    <!-- 目录内容 -->
+    
+    <!-- 目录内容结束 -->
+</aside>
+
+
+
+
+    
+  
+    
+      <article id="post-Sass 编译" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                <!-- 文章标题与文章日期 -->
+                
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/10/Sass%20%E7%BC%96%E8%AF%91/">Sass 编译</a>
+    </h1>
+  
+
+
+                
+                    <a href="/2020/07/10/Sass%20%E7%BC%96%E8%AF%91/" class="archive-article-date">
+  	<time datetime="2020-07-10T02:09:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
+</a>
+                
+                <!-- 把下方的文章标签代码连同样式一并上移到文章标题的下方 -->
+                <div class="article-info-customize article-info-index">
+                    
+                    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sass</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                    
+
+                </div>
+            </header>
+        
+
+        <div class="article-entry" itemprop="articleBody">
+            
+                <p><code>Sass</code> 安装过于简单 … 略</p>
+<h2 id="单文件编译"><a href="#单文件编译" class="headerlink" title="单文件编译"></a>单文件编译</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sass &lt;要编译的 Sass 文件路径&gt;/style.scss:&lt;要输出 CSS 文件路径&gt;/style.css</span><br></pre></td></tr></table></figure>
+
+<p>这是对一个单文件进行编译，如果想对整个项目所有 <code>Sass</code> 文件编译成 <code>CSS</code> 文件，可以这样操作：</p>
+<h2 id="多文件编译"><a href="#多文件编译" class="headerlink" title="多文件编译"></a>多文件编译</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sass sass/:css/</span><br></pre></td></tr></table></figure>
+
+<p>上面的命令表示将项目中 <code>sass</code> 文件夹中所有 <code>.scss(.sass)</code> 文件编译成 <code>.css</code> 文件</p>
+<p>并且将这些 <code>CSS</code> 文件都放在项目中 <code>css</code> 文件夹中</p>
+                
+            
+
+            
+        </div>
+        <div class="article-info article-info-index">
+        <!-- 位于此处的文章标签已移动到上方 -->
+            
+                <p class="article-more-link">
+                    <a class="article-more-a" href="/2020/07/10/Sass%20%E7%BC%96%E8%AF%91/">展开全文 >></a>
+                </p>
+            
+
+            
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+    <!-- 目录内容 -->
+    
+    <!-- 目录内容结束 -->
+</aside>
+
+
+
+
+    
+  
+    
+      <article id="post-自定义样式文件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                <!-- 文章标题与文章日期 -->
+                
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/11/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6/">自定义样式文件</a>
+    </h1>
+  
+
+
+                
+                    <a href="/2019/11/11/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6/" class="archive-article-date">
+  	<time datetime="2019-11-11T04:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-11</time>
+</a>
+                
+                <!-- 把下方的文章标签代码连同样式一并上移到文章标题的下方 -->
+                <div class="article-info-customize article-info-index">
+                    
+                    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                    
+
+                </div>
+            </header>
+        
+
+        <div class="article-entry" itemprop="articleBody">
+            
+                <h2 id="新建-customize-main-0cf68a-css-样式文件"><a href="#新建-customize-main-0cf68a-css-样式文件" class="headerlink" title="新建 customize_main.0cf68a.css 样式文件"></a>新建 customize_main.0cf68a.css 样式文件</h2><p>用途：用于覆盖 <code>main.0cf68a.css</code> 样式文件里与自定义样式重复的默认样式(<strong>建议：</strong>备份后直接修改源文件)</p>
+<p>应用：主题文件目录下的 <code>_config.yml</code> 中添加</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启用自定义样式文件</span></span><br><span class="line"><span class="attr">customize:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+                
+            
+
+            
+        </div>
+        <div class="article-info article-info-index">
+        <!-- 位于此处的文章标签已移动到上方 -->
+            
+                <p class="article-more-link">
+                    <a class="article-more-a" href="/2019/11/11/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6/">展开全文 >></a>
+                </p>
+            
+
+            
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+    <!-- 目录内容 -->
+    
+    <!-- 目录内容结束 -->
+</aside>
+
+
+
+
+    
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next »</a>
+    </nav>
   
 
 
@@ -390,6 +1219,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Sass</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
